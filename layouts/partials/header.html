@@ -1,0 +1,24 @@
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          {{ range .Site.Menus.main }}
+          <li class="nav-item">
+            <a class="{{if eq $.URL .URL}}active{{end}} nav-link" href="{{ .URL }}">
+                  {{ .Name }}
+            </a>
+          </li>            
+          {{ end }}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ partial "header" . }}
+  <div class="container-fluid">
+         
+    {{ range .Pages.ByWeight }}
+    <div class="row rowblock">  
+      <div class="col-sm-12 col-md-6">
+          <h2>{{ .Title }}</h2>
+          <p class="front-description">{{ .Description }}</p>
+          <p>
+              <a href="{{ .Permalink }}">{{ .Title }} Introduction</a>
+          </p>
+      </div>
+      <div class="col-sm-12 col-md-6">
+          <a href="{{ .Permalink }}">
+              <img src="{{ .Params.image.link }}" alt="{{ .Params.image.name }}" class="product-image">
+              </a>   
+      </div>                  
+        
+    </div>
+    {{ end }}
+  
+  </div>
+  {{ partial "footer" . }}
+{{ end }}

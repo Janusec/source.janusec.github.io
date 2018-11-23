@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ partial "header" . }}
+  <div class="list">    
+      <div class="list__item">        
+        <ul class="list-group">
+          {{ range .Pages.ByWeight }}
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+  </div>
+  {{ partial "footer" . }}
+{{ end }}

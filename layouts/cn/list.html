@@ -1,0 +1,93 @@
+{{ define "main" }}
+  <main>
+    {{ partial "header" . }}
+    <div class="container-fluid">
+    <div class="row rowblock">
+      <div class="col-sm-2 hidden-xs"></div>
+      <div class="col-sm-8 col-xs-12 centerblock">
+          <div align="center">
+            <img src="/images/janusec.png" title="Janusec Application Gateway" class="biglogo" />
+            <h1 class="slogan">{{ .Params.Slogan }}</h1>
+            <p class="front-description">{{ .Params.Description }}</p>
+            <button onclick="location.href='https://github.com/Janusec/janusec'" class="bigbtn">
+              Github
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button onclick="location.href='{{ .Params.Doc }}'" class="bigbtn">
+              快速入门
+            </button>
+          </div>
+      </div>
+      <div class="col-sm-2 hidden-xs"></div>
+    </div>
+  </div>
+
+  <div class="container-fluid">    
+      <div class="row rowblock2"> 
+            <div class="col-md-3 col-sm-6">
+              <img class="feature-image" src="/images/waf.png">                     
+              <h5>WAF (Web应用防火墙)</h5>
+              <ul>
+                  <li>防止CC攻击</li>
+                  <li>防SQL注入、XSS等</li>
+                  <li>防敏感数据泄露</li>                  
+                  <li>HTTPS支持，不需要Agent</li>
+              </ul>  
+            </div>
+          
+            <div class="col-md-3 col-sm-6">
+              <img class="feature-image" src="/images/web-admin.png">            
+              <h5>统一的Web化管理</h5>
+              <ul>
+                  <li>不需要登录服务器</li>
+                  <li>统一的Web化管理</li>
+              </ul>  
+            </div>  
+          
+            <div class="col-md-3 col-sm-6">
+              <img class="feature-image" src="/images/cert-icon.png">        
+              <h5>数字证书保护</h5>
+              <ul>
+                  <li>私钥加密存储</li>
+                  <li>不使用文件形态的证书</li>
+                  <li>内存解密使用</li>
+              </ul>   
+          </div> 
+
+          <div class="col-md-3 col-sm-6">
+              <img class="feature-image" src="/images/gate.png">        
+              <h5>可扩展的架构</h5>
+              <ul>
+                  <li>多网关/负载均衡</li>
+                  <li>私有化部署</li>                
+                  <li>自动策略同步</li>
+                  <li>软件形式交付</li>
+              </ul>   
+          </div> 
+
+      </div>
+    </div>
+    
+
+    {{ range $index,$elem := .Params.carousel }}
+    <div class="container-fluid">    
+      <div class="row rowblock">        
+      <div class="col-sm-6 col-xs-12">
+          <a href="{{ $elem.link }}">
+              <img src="{{ $elem.img }}">
+          </a> 
+      </div> 
+      <div class="col-sm-6 hidden-xs">
+          <h3>{{ $elem.header }}</h3>
+          <p>
+            <br/>
+            {{ $elem.paragraph }}
+          </p>  
+      </div>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ partial "footer" . }}
+  </main>
+{{ end }}
