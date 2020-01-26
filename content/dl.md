@@ -22,19 +22,3 @@ weight: 100
 > wget `https://www.janusec.com/download/janusec-latest.tar.gz`   
 
 
-----
-
-### WebCruiser Web Vulnerability Scanner   
-[WebCruiser Web Vulnerability Scanner Introduction](/product/webcruiser-web-vulnerability-scanner/)  
-
-#### Requirements  
-* Platform: Windows 7/8/10   
-* .Net Framework 4.5+, IE 9+  
-
-#### Download  
-| Platform         | Download         |
-|------------------|------------------|
-| Windows Desktop  | [WebCruiser Web Vulnerability Scanner Free Edition 3.5.6](/download/WebCruiser.zip "WebCruiser Web Vulnerability Scanner Free Edition")  |
-
-
-

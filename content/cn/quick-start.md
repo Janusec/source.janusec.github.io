@@ -37,7 +37,7 @@ weight: 100
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.3   
+> #cd janusec-0.9.4   
 > #./install.sh   
 
 选择 `1. Master Node`, 然后安装程序会:   
