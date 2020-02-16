@@ -46,9 +46,9 @@ The version must be greater than `9.3`.
 
 ### Ports
 
-> `netstat -anp | grep LISTEN | grep ':\(80\|443\|9080\|9443\)\s'`  
+> `netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'`  
 
-Janusec will use 80/443/9080/9443 , if other program occupied thest ports, you shoud change it before installation of Janusec.  
+Janusec will use 80/443 , if other program occupied thest ports, you shoud change it before installation of Janusec.  
 
 ### Nodes Sync
 

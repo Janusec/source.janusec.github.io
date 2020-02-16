@@ -10,39 +10,20 @@ weight: 660
 # 升级到新版本Janusec应用网关   
 ----
 
-#### Version 0.9.3 upgrade to 0.9.4  
+最新版本: v0.9.5 (2020.02.16)
 
-可正常安装，建议升级前执行如下操作：  
+#### Version 0.9.4 upgrade to 0.9.5  
 
-> drop table nodes;  
+0.9.5变更了服务类型，建议升级前执行如下操作：  
 
-删除配置文件`config.json`中含有 `node_id` 的这一行.  
+> `systemctl stop janusec`  
 
-> systemctl restart janusec.service  
+然后正常安装即可。
 
-#### Version 0.9.2 upgrade to 0.9.3  
-PostgreSQL 表 `applications` 需要升级.   
-安装程序不会自动升级，需要手工执行SQL指令：   
+如果:
 
-> alter table applications add column hsts_enabled boolean default true;   
+> `systemctl restart janusec`  
 
-然后参考 [安装](/cn/installation) 安装Janusec应用网关, 并重启 `janusec.service`:  
-
-> systemctl restart janusec.service   
-
-
-
-#### Version \<=0.9.1 upgrade to 0.9.2   
-PostgreSQL 表 `applications` 需要升级.   
-安装程序不会自动升级，需要手工执行SQL指令：  
-
-> alter table applications add column ip_method bigint default 1;    
-> alter table applications add column waf_enabled boolean default true;   
-
-然后参考 [安装](/cn/installation) 安装Janusec应用网关, 并重启 `janusec.service`:   
-
-> systemctl restart janusec.service   
-
-
+无效  ，可以kill其进程。
 
 

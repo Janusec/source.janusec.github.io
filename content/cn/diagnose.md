@@ -49,9 +49,9 @@ weight: 1200
 
 ### 端口
 
-> `netstat -anp | grep LISTEN | grep ':\(80\|443\|9080\|9443\)\s'`  
+> `netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'`  
 
-Janusec网关需要使用80/443/9080/9443这几个端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。  
+Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。  
 
 ### DNS
 

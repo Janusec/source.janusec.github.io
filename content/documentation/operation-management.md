@@ -21,9 +21,8 @@ weight: 600
 #### Admin Account  
 Web Administration address is one of the following:   
 
-> http://`your_master_node_ip_address`:9080/    (first use)
-> https://`your_master_node_domain_name`:9443/  (after certificate configured)   
-> https://`your_janusec_admin_domain_name`/   (after registered this admin application)   
+> http://`your_master_node_ip_address`/janusec-admin/    (first use)
+> https://`your_application_domain_name`/janusec-admin/  (after certificate configured)  
 
 | Default User  | Default Password |
 |:-----:|------|
@@ -36,11 +35,6 @@ Web Administration address is one of the following:
 |:-----:|------|
 |80     | Fixed, Gateway HTTP Entrance, Master Node and Slave Nodes    |
 |443    | Fixed, Gateway HTTPS Entrance, Master Node and Slave Nodes   |
-|`9080` | Custom, HTTP Web Administration, `Master Node Only`          |
-|`9443` | Custom, HTTPS  Web Administration, `Master Node Only`        |  
-
-
-> The default `9080` or `9443` port can be modified in `/usr/local/janusec/config.json`   
 
 #### Process
 > `/usr/local/janusec/janusec`  
@@ -113,10 +107,5 @@ At least one certificate and one application configured, you can use the applica
 
 For Single Node:  
 
-> `https://your_application_domain:9443/`   
-
-For Multiple Nodes, configure the admin as a common application, for example: `janusec.your_domain_name.com` , then:   
-
-> `https://janusec.your_domain_name.com/`   
-
+> `https://your_application_domain/janusec-admin/`   
 

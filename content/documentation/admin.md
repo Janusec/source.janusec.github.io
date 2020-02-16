@@ -12,13 +12,10 @@ weight: 400
 
 #### Administration Portal
 ----
-http://`janusec_application_gateway_master_node_ip`:9080/
+http://`master_node_ip`/janusec-admin/
+When finished certificate and application configuration:
+https://`your_application_domain_name`/janusec-admin/
 
-For security reasons, use internal IP address is preferred.  
-You can modify the config file of the master node:  `/usr/local/janusec/config.json` : 
-
-> "admin_http_listen": "`10.10.10.10`:9080",  
-> "admin_https_listen": "`10.10.10.10`:9443",  
 
 #### Digital Certificate Management
 see [Certificate Management](/documentation/certificate-management)  

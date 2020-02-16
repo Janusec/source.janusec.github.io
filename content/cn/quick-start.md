@@ -37,7 +37,7 @@ weight: 100
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.4   
+> #cd janusec-0.9.5   
 > #./install.sh   
 
 选择 `1. Master Node`, 然后安装程序会:   
@@ -54,8 +54,6 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"node_role": "master",  
 > &nbsp;&nbsp;&nbsp;&nbsp;"master_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_http_listen": ":9080",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_https_listen": ":9443",  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"database": {  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": "127.0.0.1",  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "5432",  
@@ -77,7 +75,7 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 
 打开浏览器（比如Chrome）,使用如下地址：
 
-> http://`您的网关IP地址`:9080/  
+> http://`您的网关IP地址`/janusec-admin/  
 
 这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。  
 默认用户名：`admin`   
@@ -88,12 +86,12 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 ----
 如果仅使用HTTP，不使用HTTPS，可跳过此步骤；但强烈建议配置证书并启用HTTPS。
 
-使用浏览器打开 http://`您的网关IP地址`:9080/ 并[添加一张数字证书](/cn/certificate-management/)。
+使用浏览器打开 http://`您的网关IP地址`/janusec-admin/ 并[添加一张数字证书](/cn/certificate-management/)。
 如果您还没有数字证书，可以从`Let's Encrypt`申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途）。
 
 ## 配置Web应用 (必选)
 ----
-使用浏览器打开  http://`您的网关IP地址`:9080/ 并[添加一个应用](/cn/application-management/).  
+使用浏览器打开  http://`您的网关IP地址`/janusec-admin/ 并[添加一个应用](/cn/application-management/).  
 填写应用名称、实际服务器的 `IP:端口` 等信息。
 
 ## 修改DNS或Hosts (必选)

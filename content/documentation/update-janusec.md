@@ -10,39 +10,18 @@ weight: 660
 # Update to Latest Version   
 ----
 
-#### Version 0.9.3 upgrade to 0.9.4  
+Latest version: v0.9.5 (Feb 16, 2020)
 
-Install janusec normally, or do the following before installation.  
+#### Version 0.9.4 upgrade to 0.9.5  
 
-> drop table nodes;  
+0.9.5 changed the service type, so before installation:  
 
-and delete the line which include `node_id` in config.json.  
+> systemctl stop janusec.service  
 
-> systemctl restart janusec.service  
+stop the service, and then install the latest version.
 
-#### Version 0.9.2 upgrade to 0.9.3  
-PostgreSQL table `applications` need to be updated.   
-The installation program will not do this operation, you should execute the following SQL command manually.   
+If:  
 
-> alter table applications add column hsts_enabled boolean default true;   
+> systemctl restart janusec  
 
-and then refer to [Installation](/documentation/installation), install Janusec Application Gateway and restart the `janusec.service`:  
-
-> systemctl restart janusec.service   
-
-
-
-#### Version \<=0.9.1 upgrade to 0.9.2   
-PostgreSQL table `applications` need to be updated.   
-The installation program will not do this operation, you should execute the following SQL command manually.   
-
-> alter table applications add column ip_method bigint default 1;    
-> alter table applications add column waf_enabled boolean default true;   
-
-and then refer to [Installation](/documentation/installation), install Janusec Application Gateway and restart the `janusec.service`:  
-
-> systemctl restart janusec.service   
-
-
-
-
+not work, just kill it.  

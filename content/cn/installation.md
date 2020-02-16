@@ -26,7 +26,7 @@ weight: 300
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.4   
+> #cd janusec-0.9.5   
 > #./install.sh   
 
 选择 `1. Master Node`, 然后安装程序会:   
@@ -44,8 +44,6 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"node_role": "master",  
 > &nbsp;&nbsp;&nbsp;&nbsp;"master_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_http_listen": ":9080",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_https_listen": ":9443",  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"database": {  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": "127.0.0.1",  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "5432",  
@@ -60,11 +58,8 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 > &nbsp;&nbsp;&nbsp;&nbsp;}  
 > }  
 
-* "node_role": "master"  ( 固定为 `master` )
-* "admin_http_listen": ":9080" ( 默认监听所有IP地址，如内网使用，建议修改为`IP:Port`格式，比如`10.10.10.10:9080` )  
-* "admin_https_listen": ":9443" ( 默认监听所有IP地址，如内网使用，建议修改为`IP:Port`格式，比如 `10.10.10.10:9443` )  
+* "node_role": "master"  ( 固定为 `master` )  
 
-> 安全原因，推荐使用内部IP地址`IP:Port`.  
 
 ##### 从节点(可选)  
 通常多个小型应用只使用一个`主节点`就够了。  
@@ -87,13 +82,13 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 > &nbsp;&nbsp;&nbsp;&nbsp;},  
 > &nbsp;&nbsp;&nbsp;&nbsp;"slave_node": {  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"node_key": "`produced_by_web_admin_in_master_node`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync_addr": "`http://master_ip:9080/janusec-api/`"  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync_addr": "`http://master_ip/janusec-admin/api`"  
 > &nbsp;&nbsp;&nbsp;&nbsp;}  
 > }  
 
 * "node_role": "`slave`"  (固定为 `slave`)  
 * "node_key": "`produced_by_web_admin_in_master_node`"  (在Web管理界面生成)  
-* "sync_addr": "`http://master_ip:9080/janusec-api/`"  (需替换为主节点IP地址)   
+* "sync_addr": "`http://master_ip/janusec-admin/api`"  (需替换为主节点IP地址)   
 
 ### Step 4: 启动
 > #systemctl start janusec.service  
@@ -101,7 +96,7 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 ### Step 5: 测试安装
 打开浏览器（比如Chrome）,使用如下地址：
 
-> http://`您的网关IP地址`:9080/  
+> http://`您的网关IP地址`/janusec-admin/  
 
 这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。  
 默认用户名：`admin`   

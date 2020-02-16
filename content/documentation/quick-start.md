@@ -37,7 +37,7 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.4   
+> #cd janusec-0.9.5   
 > #./install.sh   
 
 Select `1. Master Node`, then it will:   
@@ -53,8 +53,6 @@ Now we assume you have `PostgreSQL` installed already, and database name and acc
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"node_role": "master",  
 > &nbsp;&nbsp;&nbsp;&nbsp;"master_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_http_listen": ":9080",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_https_listen": ":9443",  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"database": {  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": "127.0.0.1",  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "5432",  
@@ -76,7 +74,7 @@ Now we assume you have `PostgreSQL` installed already, and database name and acc
 
 Open web browser such as `Chrome`, navigate with address:
 
-> http://`your_ip_address`:9080/  
+> http://`your_ip_address`/janusec-admin/  
 
 This is the administration address for Janusec Application Gateway.  
 Login with default username `admin` and password `J@nusec123` .
@@ -85,12 +83,12 @@ Login with default username `admin` and password `J@nusec123` .
 ## Certificate (required for `HTTPS`)
 ----
 If you only use HTTP, skip this step.  
-Open http://`your_ip_address`:9080/ and add a new certificate.
+Open http://`your_ip_address`/janusec-admin/ and add a new certificate.
 If you don't have a certificate, you can get a free certificate from `Let's Encrypt` or let Janusec produce a self-signed certificate( only for test).
 
 ## Application (required)
 ----
-Open http://`your_ip_address`:9080/ and add a new application.
+Open http://`your_ip_address`/janusec-admin/ and add a new application.
 Fill in application name, actual IP:Port etc.
 
 ## DNS or Hosts (required)

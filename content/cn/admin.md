@@ -13,12 +13,10 @@ weight: 400
 #### 管理入口
 ----
 第一个管理入口：  
-http://`主节点IP地址`:9080/
+http://`主节点IP地址`/janusec-admin/
+配置证书和应用后，可使用：
+https://`您的任一应用域名`/janusec-admin/
 
-安全原因，推荐使用内部IP地址`IP:Port`，可在配置文件（`/usr/local/janusec/config.json`）中修改。  
-
-> "admin_http_listen": "`10.10.10.10`:9080",  
-> "admin_https_listen": "`10.10.10.10`:9443",  
 
 #### 数字证书管理
 参考 [证书管理](/cn/certificate-management)  
