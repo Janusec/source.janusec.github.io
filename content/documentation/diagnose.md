@@ -21,6 +21,10 @@ Operating System should be x86_64 and one of the following:
 * RHEL 7  
 * Debian 9  
 
+### Time
+
+Please make sure the time is correct, time zone may be any.
+
 ### Service Management
 
 `systemd` is used for Service Management , check :  
