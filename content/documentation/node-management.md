@@ -31,8 +31,25 @@ weight: 520
 
 ![Slave Node](/images/node1.png "Slave Node of Janusec Application Gateway")  
 
-Slave Node: `node_key` in `/usr/local/janusec/config.json` are corresponding to the image.  
+Slave Node: `node_key` in `/usr/local/janusec/config.json` are corresponding to the image, like the following:    
 
-
+```
+{
+	"node_role": "slave",
+	"master_node": {
+		"database": {
+			"host": "",
+			"port": "",
+			"user": "",
+			"password": "",
+			"dbname": ""
+		}
+	},
+	"slave_node": {		
+		"node_key": "8c4609...5a5fa9",
+		"sync_addr": "http://192.168.100.107/janusec-admin/api"
+	}	
+}
+```
 
 

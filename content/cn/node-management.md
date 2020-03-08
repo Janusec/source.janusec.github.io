@@ -32,8 +32,22 @@ weight: 520
 
 ![从节点](/images/node1.png "Janusec应用网关的从节点")  
 
-从节点配置文件`/usr/local/janusec/config.json`中的`node_key`，需要据此配置.  
-
-
-
-
+从节点配置文件`/usr/local/janusec/config.json`中的`node_key`，需要据此配置，类似：    
+```
+{
+	"node_role": "slave",
+	"master_node": {
+		"database": {
+			"host": "",
+			"port": "",
+			"user": "",
+			"password": "",
+			"dbname": ""
+		}
+	},
+	"slave_node": {		
+		"node_key": "8c4609...5a5fa9",
+		"sync_addr": "http://192.168.100.107/janusec-admin/api"
+	}	
+}
+```
