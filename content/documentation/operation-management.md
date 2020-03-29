@@ -19,10 +19,21 @@ weight: 600
 
 
 #### Admin Account  
+
 Web Administration address is one of the following:   
+
+When listen=false in config.json :  
 
 > http://`your_master_node_ip_address`/janusec-admin/    (first use)
 > https://`your_application_domain_name`/janusec-admin/  (after certificate configured)  
+When listen=true  in config.json :   
+
+> http://`your_master_node_ip_address:9080`/janusec-admin/    (first use)     
+> https://`your_master_node_domain_name:9443`/janusec-admin/  (after certificate configured)     
+
+When using master node only, any application domain name can be used for admin.  
+But if you have one or more slave nodes, you should apply for a seperate domain name for master node.   
+
 
 | Default User  | Default Password |
 |:-----:|------|
@@ -35,6 +46,8 @@ Web Administration address is one of the following:
 |:-----:|------|
 |80     | Fixed, Gateway HTTP Entrance, Master Node and Slave Nodes    |
 |443    | Fixed, Gateway HTTPS Entrance, Master Node and Slave Nodes   |
+|9080   | When listen=true in config.json, Master Node Only |
+|9443   | When listen=true in config.json, Master Node Only |  
 
 #### Process
 > `/usr/local/janusec/janusec`  
@@ -51,16 +64,16 @@ The PostgreSQL password in `config.json` will be encrypted automatically
 #### Service
 The service file is managed by `systemd` and located in:
 
-> CentOS/RHEL 7: `/usr/lib/systemd/system/janusec.service`     
-> Debian 9: `/lib/systemd/system/janusec.service`    
+> CentOS/RHEL 7: `/usr/lib/systemd/system/janusec`     
+> Debian 9: `/lib/systemd/system/janusec`    
 
-View more information about janusec.service by:  
+View more information about janusec by:  
 
-> #`systemctl cat janusec.service`   
+> #`systemctl cat janusec`   
 
 or   
 
-> #`systemctl status janusec.service`  
+> #`systemctl status janusec`  
 
 #### PostgreSQL
 PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package, you should prepare it before installation, required by the Master Node.   
@@ -107,5 +120,6 @@ At least one certificate and one application configured, you can use the applica
 
 For Single Node:  
 
-> `https://your_application_domain/janusec-admin/`   
+> `https://your_application_domain/janusec-admin/` (when listen=false in config.json)     
+> `https://your_application_domain:9443/janusec-admin/` (when listen=true in config.json)  
 

@@ -36,18 +36,22 @@ weight: 520
 ```
 {
 	"node_role": "slave",
-	"master_node": {
-		"database": {
-			"host": "",
-			"port": "",
-			"user": "",
-			"password": "",
-			"dbname": ""
-		}
-	},
+	...
 	"slave_node": {		
 		"node_key": "8c4609...5a5fa9",
-		"sync_addr": "http://192.168.100.107/janusec-admin/api"
+		"sync_addr": "http://192.168.100.107:9080/janusec-admin/api"
 	}	
 }
 ```
+
+安全起见，启动从节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：  
+
+> Application Name: JANUSEC   
+> Destination: 127.0.0.1:9999 (不会实际访问)  
+> Domain: 主节点专用域名  
+> Certificate: 可用于主节点专用域名的证书  
+
+这样"sync_addr"可以使用https加密传输通道，如`https://your_gate_domain:9443/janusec-admin/api`。   
+
+当管理入口开启独立监听(配置文件config.json中listen=true)时，"sync_addr"应该带上冒号和端口号；  
+当(listen=false)时,则应去掉冒号和端口号。  

@@ -36,20 +36,22 @@ Slave Node: `node_key` in `/usr/local/janusec/config.json` are corresponding to 
 ```
 {
 	"node_role": "slave",
-	"master_node": {
-		"database": {
-			"host": "",
-			"port": "",
-			"user": "",
-			"password": "",
-			"dbname": ""
-		}
-	},
+	...
 	"slave_node": {		
 		"node_key": "8c4609...5a5fa9",
-		"sync_addr": "http://192.168.100.107/janusec-admin/api"
+		"sync_addr": "http://192.168.100.107:9080/janusec-admin/api"
 	}	
 }
 ```
 
+For security reasons, you should apply for a seperate domain name for the master node, and configure an application, as follow:  
 
+> Application Name: JANUSEC  
+> Destination: 127.0.0.1:9999 (It will not be accessed)  
+> Domain: domain name for the master node    
+> Certificate: certificate available to above domain name  
+
+Then "sync_addr" can be configured with https, example: `https://your_gate_domain:9443/janusec-admin/api`   
+
+When listen=true in config.json, "sync_addr" should has colon and port number.    
+When listen=false, remove colon and port number.   

@@ -10,27 +10,50 @@ weight: 660
 # Update to Latest Version   
 ----
 
-Latest version: v0.9.6 (Feb 27, 2020)  
+> This article is only for upgrade, not for new installation.  
 
-#### Version 0.9.5 upgrade to 0.9.6  
+Latest version: v0.9.7 (Mar 29, 2020)   
 
-The table `domains` need to be modified:  
+v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.  
+v0.9.6 (Feb 27, 2020): Add domain 301 redirect.  
 
-> `psql -h 127.0.0.1 -U janusec -W janusec`  
-> `alter table domains add column redirect boolean default false, add column location varchar(256) default null;`  
+#### View current version  
 
-then install the latest version.  
+The version information is available at admin portal, or:  
 
-#### Version 0.9.4 upgrade to 0.9.5 (Feb 16, 2020)  
+> `./janusec --version`  
+
+
+#### Version 0.9.5, 0.9.6 upgrade to 0.9.7  
+
+config.json changed in V0.9.7, so backup and new config.json is required:   
+
+> #`cd /data/`  
+> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
+> #`tar zxf ./janusec-latest.tar.gz`  
+> #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
+> #`cp ./janusec-0.9.7/config.json.master_bak /usr/local/janusec/config.json`  
+
+Edit `/usr/local/janusec/config.json`, refer to [Configuration File](/documentation/configuration/), set database information.    
+
+> #`vi /usr/local/janusec/config.json`  
+
+then install the latest version（config.json will not be overwrote if it exists.）：  
+
+> #`cd /data/janusec-0.9.7/`  
+> #`./install.sh`  
+> #`systemctl restart janusec`  
+
+#### Version 0.9.4 or earlier upgrade to 0.9.7  
 
 0.9.5 changed the service type, so before installation:  
 
-> systemctl stop janusec.service  
+> #`systemctl stop janusec`  
 
-stop the service, and then install the latest version.
+stop the service. Next, and then repeat above upgrade process.  
 
 If:  
 
-> systemctl restart janusec  
+> #`systemctl restart janusec`  
 
 not work, just kill it.  

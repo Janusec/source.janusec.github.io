@@ -26,7 +26,7 @@ weight: 300
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.6   
+> #cd janusec-0.9.7   
 > #./install.sh   
 
 选择 `1. Master Node`, 然后安装程序会:   
@@ -41,64 +41,44 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 然后编辑 `/usr/local/janusec/config.json` :
 
 ##### 主节点 (第一个节点，必选)
-> {  
-> &nbsp;&nbsp;&nbsp;&nbsp;"node_role": "master",  
-> &nbsp;&nbsp;&nbsp;&nbsp;"master_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"database": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": "127.0.0.1",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "5432",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user": "`your_postgresql_user`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"password": "`your_postgresql_password`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dbname": "`janusec`"  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}  
-> &nbsp;&nbsp;&nbsp;&nbsp;},  
-> &nbsp;&nbsp;&nbsp;&nbsp;"slave_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"node_key": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync_addr": ""  
-> &nbsp;&nbsp;&nbsp;&nbsp;}  
-> }  
 
-* "node_role": "master"  ( 固定为 `master` )  
+可参考[配置文件](/cn/configuration/)说明，其中：  
+
+> "node_role": "master"  ( 固定为 `master` )   
 
 
 ##### 从节点(可选)  
 通常多个小型应用只使用一个`主节点`就够了。  
 当流量增长后，可使用`从节点`扩展，需要配合您自己的GSLB（全球服务器负载均衡）或支持分区解析的DNS来实现（也就是说，不同地区的用户，会连接到不同的网关节点）。  
-需要先在统一的Web管理中添加节点，获取对应的`node_key` 信息，然后才能安装从节点。  
 
+可参考[配置文件](/cn/configuration/)说明，其中:  
 
-> {  
-> &nbsp;&nbsp;&nbsp;&nbsp;"node_role": "`slave`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;"master_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_http_listen": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin_https_listen": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"database": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"password": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dbname": ""  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}  
-> &nbsp;&nbsp;&nbsp;&nbsp;},  
-> &nbsp;&nbsp;&nbsp;&nbsp;"slave_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"node_key": "`produced_by_web_admin_in_master_node`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync_addr": "`http://master_ip/janusec-admin/api`"  
-> &nbsp;&nbsp;&nbsp;&nbsp;}  
-> }  
+> "node_role": "slave"  ( 固定为 `slave` )  
 
-* "node_role": "`slave`"  (固定为 `slave`)  
-* "node_key": "`produced_by_web_admin_in_master_node`"  (在Web管理界面生成)  
-* "sync_addr": "`http://master_ip/janusec-admin/api`"  (需替换为主节点IP地址)   
+并配置"slave_node"中的内容:  
+> "node_key": "从管理后台节点管理中复制过来", 
+> "sync_addr": "https://gateway.master_node.com:9443/janusec-admin/api"  
+
+说明：  
+* 如果使用了从节点，请为主节点单独申请一个域名(例如gateway.master_node.com，用于从节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。  
+* 如果"master_node" - "admin" - "listen" 为false，"sync_addr"中请勿包含冒号和端口号，如"https://gateway.master_node.com/janusec-admin/api"   
 
 ### Step 4: 启动
-> #systemctl start janusec.service  
+> #systemctl start janusec  
 
 ### Step 5: 测试安装
 打开浏览器（比如Chrome）,使用如下地址：
 
-> http://`您的网关IP地址`/janusec-admin/  
+在config.json中，如果 "master_node" - "admin" - "listen" 为false，则管理入口为： 
 
-这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。  
+> http://`您的网关IP地址`/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址   
+> https://`您的任意应用域名`/janusec-admin/ (在配置证书和应用之后可以使用)
+
+如果 "master_node" - "admin" - "listen" 为true，则默认管理入口为： 
+
+> http://`您的网关IP地址:9080`/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址   
+> https://`您的任意应用域名:9443`/janusec-admin/ (在配置证书和应用之后可以使用)
+
 默认用户名：`admin`   
 默认口令：`J@nusec123`   
 

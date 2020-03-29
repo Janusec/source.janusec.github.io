@@ -37,7 +37,7 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.6   
+> #cd janusec-0.9.7   
 > #./install.sh   
 
 Select `1. Master Node`, then it will:   
@@ -48,29 +48,41 @@ Select `1. Master Node`, then it will:
 
 ##### Step 3: Config 
 PostgreSQL is not included in release package, you should prepare database name and account.   
-Now we assume you have `PostgreSQL` installed already, and database name and account is ready, then edit `/usr/local/janusec/config.json` :
+Now we assume you have `PostgreSQL` installed already, and database name and account is ready, then edit `/usr/local/janusec/config.json` (use `//` as comment, please delete them before using it):
 
-> {  
-> &nbsp;&nbsp;&nbsp;&nbsp;"node_role": "master",  
-> &nbsp;&nbsp;&nbsp;&nbsp;"master_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"database": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"host": "127.0.0.1",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "5432",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user": "`your_postgresql_user`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"password": "`your_postgresql_password`",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dbname": "`janusec`"  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}  
-> &nbsp;&nbsp;&nbsp;&nbsp;},  
-> &nbsp;&nbsp;&nbsp;&nbsp;"slave_node": {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"node_key": "",  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync_addr": ""  
-> &nbsp;&nbsp;&nbsp;&nbsp;}  
-> }  
+```
+{
+    "node_role": "master",            // "master" for master node, "slave" for slave nodes
+    "master_node": {                  // keep empty for slave nodes
+        "admin": {                    // Administrator portal
+            "listen": true,           // Listen on new ports for admin portal
+            "listen_http": ":9080",   // Format :port or Interal_IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
+            "listen_https": ":9443",  // Format :port or Interal_IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
+            "portal": "https://your_gate_domain.com:9443/janusec-admin/",   // Please skip this item when OAuth not used. It is for admin portal OAuth callback, if listen is false in config.json, remove colon and port number
+            "webssh_enabled": false   // Web SSH Operation permitted when it is true
+        },
+        "database": {                 // PostgreSQL 9.3+
+            "host": "127.0.0.1",      // PostgreSQL IP Address
+            "port": "5432",           // PostgreSQL Port, 5432
+            "user": "postgres",       // PostgreSQL user
+            "password": "123456",     // PostgreSQL password, less than 32bit
+            "dbname": "janusec"       // PostgreSQL database name
+        },
+        "oauth": {  
+            ...
+        }
+    },
+    "slave_node": {      // for slave nodes
+        ...
+    }
+}
+```
 
+More detailed configuration, see [Configuration File](/documentation/configuration/)  
 
 
 ##### Step 4: Start and Test Installation
-> #systemctl start janusec.service  
+> #systemctl start janusec  
 
 Open web browser such as `Chrome`, navigate with address:
 

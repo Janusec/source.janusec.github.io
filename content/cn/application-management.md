@@ -11,8 +11,27 @@ weight: 510
 ----
 
 #### 需求  
-如果您需要 `https` 支持，至少需要一个数字证书。   
-[证书管理](/cn/certificate-management)
+如果您需要 `https` 支持，至少需要一个数字证书，参见[证书管理](/cn/certificate-management)。   
+
+#### 配置项说明  
+
+|   配置项                   |  说明                         |
+|---------------------------|------------------------------|
+| Application Name          | 应用名称，网站名称              |  
+| Backen or Internal Scheme | 后端使用的scheme，http或https，默认选http即可 |
+| Destination               | 后端网站的IP:Port，网关将请求转发到该处，可以配置多个，用于负载均衡 |
+| Domain name               | 使用的域名，点击下方的加号可以增加域名  |
+| Certificate               | 使用的证书，需要能够用于上面的域名 |
+| Redirect to               | 默认不勾选，用于将不常用域名跳转到常用域名 |
+| Client IP for WAF         | 网关获取IP的方式，默认REMOTE_ADDR(从IP包提取)，只有当流量来自可信任的其他设施(如CDN)时，才需要修改为其他方式 |
+| Redirect HTTP to HTTPS    | 通过Location告诉浏览器跳转到HTTPS   |
+| Enable HSTS for HTTPS     | 告诉浏览器在接下来的一年内自动使用HTTPS   |
+| Enable WAF                | 默认勾选，启用WAF                      |
+| Enable OAuth2             | 启用OAuth2统一身份认证（需要配置文件中同时启用），默认不勾选 |
+| Session Expire Seconds    | OAuth2认证通过后，有效会话时间(秒)，默认7200秒，即2小时    |
+| Application Owner         | 应用的负责人(默认为当前用户)              |
+| Description               | 应用的描述(可选)                        |
+
 
 #### 添加或编辑应用
 打开Web管理门户并导航至`Application Management`。  

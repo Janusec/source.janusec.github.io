@@ -12,9 +12,18 @@ weight: 400
 
 #### Administration Portal
 ----
-http://`master_node_ip`/janusec-admin/
-When finished certificate and application configuration:
-https://`your_application_domain_name`/janusec-admin/
+
+When listen=false in config.json :  
+
+> http://`your_master_node_ip_address`/janusec-admin/    (first use)
+> https://`your_application_domain_name`/janusec-admin/  (after certificate configured)  
+When listen=true  in config.json :   
+
+> http://`your_master_node_ip_address:9080`/janusec-admin/    (first use)     
+> https://`your_master_node_domain_name:9443`/janusec-admin/  (after certificate configured)     
+
+When using master node only, any application domain name can be used for admin.  
+But if you have one or more slave nodes, you should apply for a seperate domain name for master node.   
 
 
 #### Digital Certificate Management

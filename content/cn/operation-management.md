@@ -15,14 +15,22 @@ weight: 600
 |--------------|:-----------:|:----------:|-------------|
 | 单节点       | 一个         | 无         | 小规模Web应用，统一Web管理  |
 | 可扩展       | 一个         | 任意       | 大规模Web应用，统一Web管理  |
-| 多个自治系统  | 任意        |  任意      |  部署多套，每个自治系统内部统一Web管理.  |   
+| 多个自治系统  | 任意         |  任意      |  部署多套，每个自治系统内部统一Web管理.  |   
 
 
 #### 管理账号  
-统一的Web管理地址包括如下：
+
+统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：
 
 > http://`your_master_node_ip_address`/janusec-admin/    (首次使用)    
-> https://`your_master_node_domain_name`/janusec-admin/  (证书配置后可用)      
+> https://`your_master_node_domain_name`/janusec-admin/  (证书配置后可用)   
+
+当配置文件config.json中listen=true时，地址：  
+
+> http://`your_master_node_ip_address:9080`/janusec-admin/    (首次使用)    
+> https://`your_master_node_domain_name:9443`/janusec-admin/  (证书配置后可用)   
+
+当使用单节点时，可使用任意应用的域名；当存在从节点时，应该为主节点申请单独的域名。  
 
 | 默认用户 | 默认口令 |
 |:-----:|------|
@@ -35,7 +43,9 @@ weight: 600
 |:-----:|------|
 |80     | 固定的网关HTTP入口，主节点和从节点均开启     |
 |443    | 固定的网关HTTPS入口，主节点和从节点均开启    |  
-  
+|9080   | 当config.json中listen=true时，仅主节点开启 |
+|9443   | 当config.json中listen=true时，仅主节点开启 |  
+
 
 #### 进程
 > `/usr/local/janusec/janusec`  
@@ -52,16 +62,16 @@ weight: 600
 #### 服务
 使用 `systemd` 管理Janusec服务，位置:
 
-> CentOS/RHEL 7: `/usr/lib/systemd/system/janusec.service`     
-> Debian 9: `/lib/systemd/system/janusec.service`    
+> CentOS/RHEL 7: `/usr/lib/systemd/system/janusec`     
+> Debian 9: `/lib/systemd/system/janusec`    
 
 查看更多信息，可执行：    
 
-> #`systemctl cat janusec.service`   
+> #`systemctl cat janusec`   
 
 或者     
 
-> #`systemctl status janusec.service`  
+> #`systemctl status janusec`  
 
 #### PostgreSQL
 PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令.    
@@ -107,8 +117,5 @@ PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安�
 #### 为Web管理启用 HTTPS  
 如果已配置证书，可使用任一Web应用的域名，以及`/janusec-admin/`进行访问：  
 
-> `https://your_application_domain/janusec-admin/`   
-
-
-
-
+> `https://your_application_domain/janusec-admin/` (config.json中listen=false时)     
+> `https://your_application_domain:9443/janusec-admin/` (config.json中listen=true时)  

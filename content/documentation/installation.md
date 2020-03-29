@@ -26,7 +26,7 @@ weight: 300
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.6   
+> #cd janusec-0.9.7   
 > #./install.sh   
 
 Select `1. Master Node`, then it will:   
@@ -88,7 +88,7 @@ You must copy the `node_key` in web administration portal if you need slave node
 * "sync_addr": "`http://master_ip/janusec-admin/api`"  (replace with the master IP address)
 
 ### Step 4: Start
-> #systemctl start janusec.service  
+> #systemctl start janusec  
 
 ### Step 5: Test Installation
 Open web browser such as `Chrome`, navigate with address:
