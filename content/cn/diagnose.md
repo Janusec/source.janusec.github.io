@@ -57,6 +57,10 @@ weight: 1200
 
 Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。  
 
+当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。  
+> `netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'`  
+
+
 ### DNS
 
 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。  
@@ -68,8 +72,20 @@ Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机�
 
 * 各节点时间正确（误差不超过一分钟）  
 * 从节点`node_key`跟Web管理控制台中[节点管理](/cn/node-management)中显示的`node_key`一致。  
+
+### 日志
+
+日志文件路径为 `/usr/local/janusec/log/` ，可查看日志中是否存在错误输出。  
   
-  
+### 更多错误信息  
+
+如果上述检查都没有问题，可停止Janusec服务，改由控制台运行，以便观察更多的输出信息：  
+
+> #`systemctl stop janusec`  
+> #`cd /usr/local/janusec`  
+> #`./janusec`  
+
+如果发现有错误输出，可通过QQ群（776900157）反馈。  
   
 
 ## 开发

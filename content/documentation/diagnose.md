@@ -52,7 +52,11 @@ The version must be greater than `9.3`.
 
 > `netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'`  
 
-Janusec will use 80/443 , if other program occupied thest ports, you shoud change it before installation of Janusec.  
+Janusec will use 80/443 , if other program occupied thest ports, you shoud change it before installation of Janusec.   
+
+If listen=true in config.json, Janusec will use 9080/9443 also, used for internal management.  
+
+> `netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'`  
 
 ### Nodes Sync
 
@@ -61,7 +65,20 @@ In order to sync correctly, requires:
 * Slave node use the correct time, error less than 60 seconds.  
 * The `node_key` in `/usr/local/janusec/config.json` is the same with [Node Management](/documentation/node-management).  
   
-  
+### Log
+
+Log file is under /usr/local/janusec/log/  
+
+### More Information
+
+If all above are OK, you can stop the janusec service, and switch to run it under console, to view more output:  
+
+> #`systemctl stop janusec`  
+> #`cd /usr/local/janusec`  
+> #`./janusec`  
+
+如果发现有错误输出，可通过QQ群（776900157）反馈。  
+If error found, you can sent to the bottom email, or submit an issue on https://github.com/Janusec/janusec/issues  
   
 
 ## Development

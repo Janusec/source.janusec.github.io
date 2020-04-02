@@ -104,6 +104,16 @@ appsecret即上述自建应用的Secret，请据实修改。
 > "appid": "cli_9ef21d00e",  
 > "appsecret": "ihUBspRAG1PtNdDLUZ"     
 
+
+### 退出登录  
+
+后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。  
+
+### 原理介绍与演示  
+
+原理介绍与演示效果，参见： [使用JANUSEC应用网关给内部网站添加身份认证](https://www.janusec.com/articles/opensource/1585458493.html)  
+
+
 ### 多节点注意事项  
 
 OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名(不包括单独为主节点申请的域名)，假设为www.your_domain.com 。  
