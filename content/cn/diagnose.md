@@ -35,6 +35,9 @@ weight: 1200
 
 （预期结果为：/usr/bin/systemctl） 
 
+### 配置文件
+
+参见[配置文件](/cn/configuration/)  
 
 ### PostgreSQL
 

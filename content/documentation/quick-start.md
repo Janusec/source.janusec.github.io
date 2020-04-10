@@ -84,9 +84,13 @@ More detailed configuration, see [Configuration File](/documentation/configurati
 ##### Step 4: Start and Test Installation
 > #systemctl start janusec  
 
-Open web browser such as `Chrome`, navigate with address:
+Open web browser such as `Chrome`, when listen=false in config.json, navigate with address:
 
 > http://`your_ip_address`/janusec-admin/  
+
+when listen=true in config.json:  
+
+> http://`your_ip_address`:9080/janusec-admin/  
 
 This is the administration address for Janusec Application Gateway.  
 Login with default username `admin` and password `J@nusec123` .
