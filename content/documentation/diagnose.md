@@ -97,7 +97,7 @@ Different configuration files used, `./config.json` for development , and `/usr/
 
 ### Golang
 
-At least Go 1.12+ .  
+At least Go 1.14+ .  
 
 ### Code
 
