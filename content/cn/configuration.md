@@ -18,7 +18,7 @@ weight: 350
 #### 配置项说明
 ----
 
-以下为Janusec Application Gateway V0.9.7 配置文件参考。  
+以下为Janusec Application Gateway V0.9.8 配置文件参考。  
 由于JSON格式支持的注释格式看起来不方便，下面采用`//`作为注释说明，实际使用时需要删除注释。
 
 ```
@@ -71,6 +71,19 @@ weight: 350
                 "appsecret": "ihUBspRAG1PtNdDLUZ"
                 // 需要在飞书开放平台注册应用并经企业管理员审核通过(名称JANUSEC)
                 // 需要在飞书开放平台后台配置"安全域名"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu" 
+            },
+            "ldap": {
+                "display_name": "Login with LDAP",
+                // 修改entrance,使用您的网关域名替换
+                "entrance": "https://gate.janusec.com/ldap/login",
+                // LDAP服务器地址，格式为 域名:端口  
+                "address": "ldap.janusec.com:389",
+                // {uid} 保持不变，其他根据实际修改
+                "dn":"uid={uid},ou=People,dc=janusec,dc=com",
+                // 是否启用加密传输
+                "using_tls":false,
+                // 是否启动Authenticator认证码（Google Authenticator或Microsoft Authenticator）
+                "authenticator_enabled": false
             }
         }
     },

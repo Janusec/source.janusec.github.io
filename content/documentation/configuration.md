@@ -18,7 +18,7 @@ Development environment: `./config.json`
 #### Configuration Items
 ----
 
-The following is based on Janusec Application Gateway V0.9.7, and use `//` as comment, please delete `// comment` before using it.
+The following is based on Janusec Application Gateway V0.9.8, and use `//` as comment, please delete `// comment` before using it.
 
 ```
 {
@@ -66,6 +66,18 @@ The following is based on Janusec Application Gateway V0.9.7, and use `//` as co
                 "appsecret": "ihUBspRAG1PtNdDLUZ"
                 // Create application JANUSEC is required
                 // "Secure Domain"-"Redirect URL" is required, example: "https://your_domain.com/oauth/feishu" 
+            },
+            "ldap": {
+                "display_name": "Login with LDAP",
+                // change the entrance, replace the domain
+                "entrance": "https://gate.janusec.com/ldap/login",
+                // change the ldap server with domain:port  
+                "address": "ldap.janusec.com:389",
+                // keep the {uid}
+                "dn":"uid={uid},ou=People,dc=janusec,dc=com",
+                "using_tls":false,
+                // Enable Authenticator (Google Authenticator or Microsoft Authenticator)
+                "authenticator_enabled": false
             }
         }
     },

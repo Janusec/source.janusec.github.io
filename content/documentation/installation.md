@@ -26,7 +26,7 @@ weight: 300
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.7   
+> #cd janusec-0.9.8   
 > #./install.sh   
 
 Select `1. Master Node`, then it will:   

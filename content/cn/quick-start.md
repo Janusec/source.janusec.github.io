@@ -21,8 +21,8 @@ weight: 100
 
 | 节点                | 操作系统   | 数据库 |
 |---------------------|--------------------------------------------------|----------|
-| 主节点 | CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| 从节点  | CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd | 不需要 |  
+| 主节点 | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
+| 从节点  | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | 不需要 |  
 
 本入门只安装一个主节点，不安装从节点，如需扩展，可参考[安装](/cn/installation/)一节。
   
@@ -37,7 +37,7 @@ weight: 100
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.7   
+> #cd janusec-0.9.8   
 > #./install.sh   
 
 选择 `1. Master Node`   
