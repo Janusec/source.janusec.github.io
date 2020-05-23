@@ -41,48 +41,65 @@ weight: 350
         },
         "oauth": {                    // OAuth2统一身份认证
             "enabled": false,         // 设置为true时，启用OAuth2统一身份认证
-            "provider": "wxwork",     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)
+            "provider": "wxwork",     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)
             "wxwork": {               // 企业微信配置
                 // 登录界面显示
                 "display_name": "Login with WeChat Work",     
+
                 // callback中只修改http/https及域名，后面的路径不变，也不带端口号
                 "callback": "https://your_domain.com/oauth/wxwork",  
+
                 // 在https://work.weixin.qq.com/wework_admin/frame#profile 下方可看到企业ID信息
                 "corpid": "wwd03be1f8",  
+
                 // 在https://work.weixin.qq.com/wework_admin/frame#apps 创建名为JANUSEC的自建应用即可看到
                 "agentid": "1000002",  
+
                 // corpsecret即上述自建应用的Secret，请据实修改                             
                 "corpsecret": "BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI"  
+
                 // 备注：需要同时在该应用"开发者接口"一栏配置"授权回调域"，配置一个常用的应用域名作为网关的访问域名
             },
             "dingtalk": {             // 钉钉配置
-                "display_name": "Login with DingTalk",     
+                "display_name": "Login with DingTalk",  
+
                 // callback中只修改http/https及域名，后面的路径不变，也不带端口号
                 "callback": "https://your_domain.com/oauth/dingtalk", 
+
                 // 需要在钉钉开放平台注册应用
                 "appid": "dingoa8xvc",
                 "appsecret": "crrALdXUIj4T0zBekYh4u9sU_T1GZT"
             },
             "feishu": {
                 "display_name": "Login with Feishu",
+
                 // callback中只修改http/https及域名，后面的路径不变，也不带端口号
                 "callback": "https://your_domain.com/oauth/feishu",
-                "appid": "cli_9ef21d00e",
-                "appsecret": "ihUBspRAG1PtNdDLUZ"
+
                 // 需要在飞书开放平台注册应用并经企业管理员审核通过(名称JANUSEC)
                 // 需要在飞书开放平台后台配置"安全域名"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu" 
+                "appid": "cli_9ef21d00e",
+                "appsecret": "ihUBspRAG1PtNdDLUZ"
+                
             },
             "ldap": {
+                // 显示在登录界面
                 "display_name": "Login with LDAP",
+
                 // 修改entrance,使用您的网关域名替换
                 "entrance": "https://gate.janusec.com/ldap/login",
+
                 // LDAP服务器地址，格式为 域名:端口  
                 "address": "ldap.janusec.com:389",
+
                 // {uid} 保持不变，其他根据实际修改
                 "dn":"uid={uid},ou=People,dc=janusec,dc=com",
+
                 // 是否启用加密传输
                 "using_tls":false,
-                // 是否启动Authenticator认证码（Google Authenticator或Microsoft Authenticator）
+
+                // 是否启用Authenticator认证码双因子认证
+                // 需要安装手机APP（Google Authenticator或Microsoft Authenticator）
                 "authenticator_enabled": false
             }
         }

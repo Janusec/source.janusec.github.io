@@ -39,8 +39,8 @@ The following is based on Janusec Application Gateway V0.9.8, and use `//` as co
             "dbname": "janusec"       // PostgreSQL database name
         },
         "oauth": {                    // OAuth2
-            "enabled": false,         // true: Enable OAuth2 
-            "provider": "wxwork",     // wxwork(WeChat Work)、dingtalk(DingTalk)、feishu(Feishu)
+            "enabled": false,         // true: Enable LDAP or OAuth2 Authentication
+            "provider": "wxwork",     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu)
             "wxwork": {               // WeChat Work
                 "display_name": "Login with WeChat Work",     
                 // Only http/https and domain changable, don't use port number
