@@ -81,7 +81,7 @@ PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安�
 主要参考 https://wiki.postgresql.org/wiki/YUM_Installation
 首先添加源，方便通过yum安装。
 
-> `yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm`  
+> `yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm`  
 
 如果该链接失效，可通过  `https://yum.postgresql.org/repopackages.php` 获取最新地址。   
 添加成功后，可通过YUM安装。         

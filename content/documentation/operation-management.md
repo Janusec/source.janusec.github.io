@@ -83,7 +83,7 @@ Before the installation of the Master Node, dbname, dbuser and password should b
 ##### Example with CentOS 7 and PostgreSQL 10
 Refer to https://wiki.postgresql.org/wiki/YUM_Installation
 
-> `yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm`  
+> `yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm`  
 
 if the link outdated, copy the right link from `https://yum.postgresql.org/repopackages.php`     
 
