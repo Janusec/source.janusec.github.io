@@ -21,8 +21,8 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 
 | Role                | Operating System   | Database |
 |---------------------|--------------------------------------------------|----------|
-| Master Node | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| Slave Node  | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | Not required |  
+| Primary Node | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
+| Replica Node  | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | Not required |  
 
 
   
@@ -37,10 +37,10 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.8   
+> #cd janusec-0.9.9   
 > #./install.sh   
 
-Select `1. Master Node`, then it will:   
+Select `1. Primary Node`, then it will:   
 
 * copy files to `/usr/local/janusec/`   
 * copy service file to system service directory   
@@ -52,8 +52,8 @@ Now we assume you have `PostgreSQL` installed already, and database name and acc
 
 ```
 {
-    "node_role": "master",            // "master" for master node, "slave" for slave nodes
-    "master_node": {                  // keep empty for slave nodes
+    "node_role": "primary",            // "primary" for primary node, "replica" for replica nodes
+    "primary_node": {                  // keep empty for replica nodes
         "admin": {                    // Administrator portal
             "listen": true,           // Listen on new ports for admin portal
             "listen_http": ":9080",   // Format :port or Interal_IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
@@ -72,7 +72,7 @@ Now we assume you have `PostgreSQL` installed already, and database name and acc
             ...
         }
     },
-    "slave_node": {      // for slave nodes
+    "replica_node": {      // for replica nodes
         ...
     }
 }

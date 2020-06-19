@@ -15,13 +15,13 @@ weight: 400
 
 当配置文件config.json中listen=false时，管理入口包括如下：
 
-> http://`your_master_node_ip_address`/janusec-admin/    (首次使用)    
-> https://`your_master_node_domain_name`/janusec-admin/  (证书配置后可用)   
+> http://`your_primary_node_ip_address`/janusec-admin/    (首次使用)    
+> https://`your_primary_node_domain_name`/janusec-admin/  (证书配置后可用)   
 
 当配置文件config.json中listen=true时，地址：  
 
-> http://`your_master_node_ip_address:9080`/janusec-admin/    (首次使用)    
-> https://`your_master_node_domain_name:9443`/janusec-admin/  (证书配置后可用) 
+> http://`your_primary_node_ip_address:9080`/janusec-admin/    (首次使用)    
+> https://`your_primary_node_domain_name:9443`/janusec-admin/  (证书配置后可用) 
 
 
 #### 数字证书管理

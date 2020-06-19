@@ -11,7 +11,7 @@ weight: 600
 ----  
 
 #### 部署架构
-| 架构         | 主节点       | 从节点     | 描述 |
+| 架构         | 主节点       | 副本节点     | 描述 |
 |--------------|:-----------:|:----------:|-------------|
 | 单节点       | 一个         | 无         | 小规模Web应用，统一Web管理  |
 | 可扩展       | 一个         | 任意       | 大规模Web应用，统一Web管理  |
@@ -22,15 +22,15 @@ weight: 600
 
 统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：
 
-> http://`your_master_node_ip_address`/janusec-admin/    (首次使用)    
-> https://`your_master_node_domain_name`/janusec-admin/  (证书配置后可用)   
+> http://`your_primary_node_ip_address`/janusec-admin/    (首次使用)    
+> https://`your_primary_node_domain_name`/janusec-admin/  (证书配置后可用)   
 
 当配置文件config.json中listen=true时，地址：  
 
-> http://`your_master_node_ip_address:9080`/janusec-admin/    (首次使用)    
-> https://`your_master_node_domain_name:9443`/janusec-admin/  (证书配置后可用)   
+> http://`your_primary_node_ip_address:9080`/janusec-admin/    (首次使用)    
+> https://`your_primary_node_domain_name:9443`/janusec-admin/  (证书配置后可用)   
 
-当使用单节点时，可使用任意应用的域名；当存在从节点时，应该为主节点申请单独的域名。  
+当使用单节点时，可使用任意应用的域名；当存在副本节点时，应该为主节点申请单独的域名。  
 
 | 默认用户 | 默认口令 |
 |:-----:|------|
@@ -41,8 +41,8 @@ weight: 600
 #### 端口
 | 端口  | 描述 |
 |:-----:|------|
-|80     | 固定的网关HTTP入口，主节点和从节点均开启     |
-|443    | 固定的网关HTTPS入口，主节点和从节点均开启    |  
+|80     | 固定的网关HTTP入口，主节点和副本节点均开启     |
+|443    | 固定的网关HTTPS入口，主节点和副本节点均开启    |  
 |9080   | 当config.json中listen=true时，仅主节点开启 |
 |9443   | 当config.json中listen=true时，仅主节点开启 |  
 

@@ -22,9 +22,9 @@ weight: 100
 | 节点                | 操作系统   | 数据库 |
 |---------------------|--------------------------------------------------|----------|
 | 主节点 | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| 从节点  | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | 不需要 |  
+| 副本节点  | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | 不需要 |  
 
-本入门只安装一个主节点，不安装从节点，如需扩展，可参考[安装](/cn/installation/)一节。
+本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。
   
 ## 安装
 ----
@@ -37,10 +37,10 @@ weight: 100
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.8   
+> #cd janusec-0.9.9   
 > #./install.sh   
 
-选择 `1. Master Node`   
+选择 `1. Primary Node`   
 
 然后安装程序会自动将所需文件复制到安装目录 `/usr/local/janusec/`，将服务配置文件复制到系统服务目录，以及将服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次。   
 
@@ -52,8 +52,8 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 
 ```
 {
-    "node_role": "master",            // 单节点或主节点配置为"master"
-    "master_node": {                  
+    "node_role": "primary",            // 单节点或主节点配置为"primary"
+    "primary_node": {                  
         "admin": {                    // 后台管理
             "listen": true,           // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录
             "listen_http": ":9080",   // 格式为 :port 或 内网IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问
@@ -72,7 +72,7 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
             ... 
         }
     },
-    "slave_node": {
+    "replica_node": {
         ...
     }
 }

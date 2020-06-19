@@ -11,7 +11,7 @@ weight: 600
 ----  
 
 #### Deployment Architecture
-| Architecture | Master Node | Slave Node | Description |
+| Architecture | Primary Node | Replica Node | Description |
 |--------------|:-----------:|:----------:|-------------|
 | Single-Node  | One         | None       | small scale applications with unified web management |
 | Scalable     | One         | Any        | large scale applications with unified web management |
@@ -24,15 +24,15 @@ Web Administration address is one of the following:
 
 When listen=false in config.json :  
 
-> http://`your_master_node_ip_address`/janusec-admin/    (first use)
+> http://`your_primary_node_ip_address`/janusec-admin/    (first use)
 > https://`your_application_domain_name`/janusec-admin/  (after certificate configured)  
 When listen=true  in config.json :   
 
-> http://`your_master_node_ip_address:9080`/janusec-admin/    (first use)     
-> https://`your_master_node_domain_name:9443`/janusec-admin/  (after certificate configured)     
+> http://`your_primary_node_ip_address:9080`/janusec-admin/    (first use)     
+> https://`your_primary_node_domain_name:9443`/janusec-admin/  (after certificate configured)     
 
-When using master node only, any application domain name can be used for admin.  
-But if you have one or more slave nodes, you should apply for a seperate domain name for master node.   
+When using primary node only, any application domain name can be used for admin.  
+But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.   
 
 
 | Default User  | Default Password |
@@ -44,10 +44,10 @@ But if you have one or more slave nodes, you should apply for a seperate domain 
 #### Ports
 | Port  | Description |
 |:-----:|------|
-|80     | Fixed, Gateway HTTP Entrance, Master Node and Slave Nodes    |
-|443    | Fixed, Gateway HTTPS Entrance, Master Node and Slave Nodes   |
-|9080   | When listen=true in config.json, Master Node Only |
-|9443   | When listen=true in config.json, Master Node Only |  
+|80     | Fixed, Gateway HTTP Entrance, Primary Node and Replica Nodes    |
+|443    | Fixed, Gateway HTTPS Entrance, Primary Node and Replica Nodes   |
+|9080   | When listen=true in config.json, Primary Node Only |
+|9443   | When listen=true in config.json, Primary Node Only |  
 
 #### Process
 > `/usr/local/janusec/janusec`  
@@ -76,9 +76,9 @@ or
 > #`systemctl status janusec`  
 
 #### PostgreSQL
-PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package, you should prepare it before installation, required by the Master Node.   
+PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package, you should prepare it before installation, required by the Primary Node.   
 
-Before the installation of the Master Node, dbname, dbuser and password should be ready.  
+Before the installation of the Primary Node, dbname, dbuser and password should be ready.  
 
 ##### Example with CentOS 7 and PostgreSQL 10
 Refer to https://wiki.postgresql.org/wiki/YUM_Installation

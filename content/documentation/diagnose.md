@@ -62,7 +62,7 @@ If listen=true in config.json, Janusec will use 9080/9443 also, used for interna
 
 In order to sync correctly, requires:  
 
-* Slave node use the correct time, error less than 60 seconds.  
+* Replica node use the correct time, error less than 60 seconds.  
 * The `node_key` in `/usr/local/janusec/config.json` is the same with [Node Management](/documentation/node-management).  
   
 ### Log

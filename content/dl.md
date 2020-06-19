@@ -14,7 +14,7 @@ weight: 100
 
 | Type     | Requirements | Download |
 |----------|--------------|----------|
-|Binary Release | CentOS/RHEL 7+ or Debian 9+, with systemd | [0.9.8](https://www.janusec.com/download/janusec-latest.tar.gz)    |
+|Binary Release | CentOS/RHEL 7+ or Debian 9+, with systemd | [0.9.9](https://www.janusec.com/download/janusec-latest.tar.gz)    |
 |Binary Release | CentOS/RHEL 7+ or Debian 9+, with systemd | [0.9.7](https://www.janusec.com/download/janusec-0.9.7.tar.gz)    |
 |Source Code    | Linux with systemd                        | [Github](https://github.com/Janusec/janusec) |
 

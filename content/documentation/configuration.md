@@ -18,12 +18,12 @@ Development environment: `./config.json`
 #### Configuration Items
 ----
 
-The following is based on Janusec Application Gateway V0.9.8, and use `//` as comment, please delete `// comment` before using it.
+The following is based on Janusec Application Gateway V0.9.9, and use `//` as comment, please delete `// comment` before using it.
 
 ```
 {
-    "node_role": "master",            // "master" for master node, "slave" for slave nodes
-    "master_node": {                  // keep empty for slave nodes
+    "node_role": "primary",            // "primary" for primary node, "replica" for replica nodes
+    "primary_node": {                  // keep empty for replica nodes
         "admin": {                    // Administrator portal
             "listen": true,           // Listen on new ports for admin portal
             "listen_http": ":9080",   // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
@@ -81,12 +81,12 @@ The following is based on Janusec Application Gateway V0.9.8, and use `//` as co
             }
         }
     },
-    "slave_node": {      // for slave nodes
+    "replica_node": {      // for replica nodes
         // copy from the node management
         "node_key": "",  
         // If listen is true, IP:Port is required.
-        // If https is required, it need a seperate domain for master node, and an empty applicaiton should be configured, destination may be 127.0.0.1:9999 which not used.
-        "sync_addr": "http://gateway.master_node.com:9080/janusec-admin/api"
+        // If https is required, it need a seperate domain for primary node, and an empty applicaiton should be configured, destination may be 127.0.0.1:9999 which not used.
+        "sync_addr": "http://gateway.primary_node.com:9080/janusec-admin/api"
     }
 }
 ```

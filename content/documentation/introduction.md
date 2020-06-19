@@ -20,7 +20,7 @@ Janusec Application Gateway, an application security solutions for public cloud,
 * Web Application Firewall  ( `HTTPS` support, `No Agent` Required )    
 * Load Balance
 * Encrypted Certificates Manager 
-* Mater and Slave Nodes Supported 
+* Mater and Replica Nodes Supported 
 
 ----
 
