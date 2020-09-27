@@ -13,8 +13,30 @@ weight: 300
 ### 需求
 | 节点                | 操作系统   | 数据库 |
 |---------------------|--------------------------------------------------|----------|
-| 主节点 | CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| 副本节点  | CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd | 不需要 |   
+| 主节点    | CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）  |   
+| 副本节点  | CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables | 不需要 | 
+
+
+## 准备主机防火墙nftables  
+----
+nftables用于拦截CC攻击，减轻应用网关压力。  
+
+CentOS 7默认没有安装nftables，需要手工安装并启动：  
+
+> #yum -y install nftables  
+> #systemctl enable nftables  
+> #systemctl start nftables  
+
+CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：  
+
+> #systemctl enable firewalld  
+> #systemctl start firewalld  
+
+现在，可以通过如下指令查看规则：  
+
+> #nft list ruleset  
+
+如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。  
 
 
 ### 步骤1: 下载

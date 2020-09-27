@@ -21,9 +21,30 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 
 | Role                | Operating System   | Database |
 |---------------------|--------------------------------------------------|----------|
-| Primary Node | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| Replica Node  | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | Not required |  
+| Primary Node | CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)  |   
+| Replica Node  | CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables | Not required |  
 
+
+## Prepare nftables  
+----
+nftables used for CC defense.    
+
+nftables is not installed for CentOS 7 by default, installation is required:    
+
+> #yum -y install nftables  
+> #systemctl enable nftables  
+> #systemctl start nftables  
+
+nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：  
+
+> #systemctl enable firewalld  
+> #systemctl start firewalld  
+
+Now, you can view the ruleset through:  
+
+> #nft list ruleset  
+
+If the rule is not empty, it may affect the effectiveness of the firewall policy. Assuming that the nftables rule is empty now, then continue.   
 
   
 ## Installation
@@ -125,3 +146,32 @@ Test cases:
 Block information:  
 ![WAF](/images/waf2.png "WAF of Janusec Application Gateway")  
 
+
+## Firewall nftables Validation  
+----
+
+> #nft list table inet janusec  
+
+or:    
+
+> #nft list table inet janusec -a  
+
+The result is like this:  
+
+```
+[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+```
+
+If you need to test the effect of CC defense, please check the CC protection rules in WAF management at first.  

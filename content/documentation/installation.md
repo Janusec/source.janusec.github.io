@@ -11,10 +11,33 @@ weight: 300
 ----
 
 ### Requirements
+
 | Role                | Operating System   | Database |
 |---------------------|--------------------------------------------------|----------|
-| Primary Node | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| Replica Node  | CentOS/RHEL 7, or Debian 9, x86_64, with systemd | Not required |  
+| Primary Node | CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)  |   
+| Replica Node  | CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables | Not required |  
+
+
+## Prepare nftables  
+----
+nftables used for CC defense.    
+
+nftables is not installed for CentOS 7 by default, installation is required:    
+
+> #yum -y install nftables  
+> #systemctl enable nftables  
+> #systemctl start nftables  
+
+nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：  
+
+> #systemctl enable firewalld  
+> #systemctl start firewalld  
+
+Now, you can view the ruleset through:  
+
+> #nft list ruleset  
+
+If the rule is not empty, it may affect the effectiveness of the firewall policy. Assuming that the nftables rule is empty now, then continue.   
 
 
 ### Step 1: Download

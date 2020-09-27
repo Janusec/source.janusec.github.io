@@ -52,7 +52,7 @@ weight: 1200
 
 > select version();  
 
-版本要求为`9.3`以上（不支持PostgreSQL 9.2或更早的版本）。  
+版本要求为`9.3`以上（首选10+，不支持PostgreSQL 9.2或更早的版本）。  
 
 ### 端口
 
@@ -80,6 +80,27 @@ Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机�
 ### 日志
 
 日志文件路径为 `/usr/local/janusec/log/` ，可查看日志中是否存在错误输出。  
+
+### nftables防火墙
+
+请确保nftables防火墙正常工作，且没有多余的规则影响JANUSEC，参考[安装](/cn/installation/)一节。  
+JANUSEC启动后，正常情况下规则类似如下： 
+ 
+```
+[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+```
   
 ### 更多错误信息  
 

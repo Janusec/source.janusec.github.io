@@ -21,11 +21,34 @@ weight: 100
 
 | 节点                | 操作系统   | 数据库 |
 |---------------------|--------------------------------------------------|----------|
-| 主节点 | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10  |   
-| 副本节点  | CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd | 不需要 |  
+| 主节点    | CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）  |   
+| 副本节点  | CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables | 不需要 |  
 
-本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。
+本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。  
   
+
+## 准备主机防火墙nftables  
+----
+nftables用于拦截CC攻击，减轻应用网关压力。  
+
+CentOS 7默认没有安装nftables，需要手工安装并启动：  
+
+> #yum -y install nftables  
+> #systemctl enable nftables  
+> #systemctl start nftables  
+
+CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：  
+
+> #systemctl enable firewalld  
+> #systemctl start firewalld  
+
+现在，可以通过如下指令查看规则：  
+
+> #nft list ruleset  
+
+如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。  
+
+
 ## 安装
 ----
 ##### 步骤 1: 下载
@@ -135,3 +158,32 @@ https://`your_domain_name`/ .
 阻断效果:   
 ![WAF](/images/waf2.png "WAF of Janusec Application Gateway")  
 
+## 防火墙验证  
+----
+
+可通过：  
+
+> #nft list table inet janusec  
+
+或者：  
+
+> #nft list table inet janusec -a  
+
+查看应用网关相关的规则，大概是这样的：  
+```
+[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+```
+
+如需测试CC防御效果，请先检查WAF管理中的CC防护规则。  
