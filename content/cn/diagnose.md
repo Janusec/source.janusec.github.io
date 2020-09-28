@@ -19,9 +19,9 @@ weight: 1200
 
 操作系统需要为x86_64架构的如下操作系统之一：  
 
-* CentOS 7+  
-* RHEL 7+  
-* Debian 9+  
+* CentOS 7/8+ (首选CentOS 8+)  
+* RHEL 7/8+  
+* Debian 9/10+  
 
 ### 时间
 

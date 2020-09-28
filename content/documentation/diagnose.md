@@ -17,9 +17,9 @@ weight: 1200
 
 Operating System should be x86_64 and one of the following:  
 
-* CentOS 7  
-* RHEL 7  
-* Debian 9  
+* CentOS 7/8+  
+* RHEL 7/8+  
+* Debian 9/10+  
 
 ### Time
 
@@ -68,6 +68,29 @@ In order to sync correctly, requires:
 ### Log
 
 Log file is under /usr/local/janusec/log/  
+
+### nftables
+
+Please make sure nftables works well and there are no redundant rules that affect JANUSEC. Refer to [Installation](/documentation/installation/).  
+
+After JANUSEC started, the rules is like this:  
+ 
+```
+[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+```
+
 
 ### More Information
 

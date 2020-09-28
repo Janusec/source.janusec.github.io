@@ -12,7 +12,9 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.9 (Jun 19, 2020)   
+Latest version: v0.9.10 (Sep 26, 2020)   
+
+v0.9.10 (Sep 26, 2020): Add nftables support for CC defense  
 v0.9.9 (Jun 19, 2020): Add static files cache  
 v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.  
 v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.  
@@ -24,6 +26,28 @@ The version information is available at admin portal, or:
 
 > `./janusec --version`  
 
+#### Version 0.9.9 upgrade to 0.9.10  
+
+First, nftables is required for CC defense.    
+
+nftables is not installed for CentOS 7 by default, installation is required:    
+
+> #yum -y install nftables  
+> #systemctl enable nftables  
+> #systemctl start nftables  
+
+nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：  
+
+> #systemctl enable firewalld  
+> #systemctl start firewalld  
+
+Then, update JANUSEC like this:  
+
+> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
+> #`tar zxf ./janusec-latest.tar.gz`  
+> #`cd /data/janusec-0.9.10/`  
+> #`./install.sh`  
+> #`systemctl restart janusec`  
 
 #### Version 0.9.5+ upgrade to 0.9.9  
 

@@ -12,9 +12,10 @@ weight: 660
 
 > 本文仅供旧版本升级参考，新安装请忽略。  
 
-最新版本: v0.9.9 (2020.06.19)  
+最新版本: v0.9.10 (2020.09.26)  
 
 版本历史:   
+v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
 v0.9.9 (2020.06.19): 增加静态文件缓存  
 v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。  
 v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。  
@@ -25,6 +26,29 @@ v0.9.6 (2020.02.27): 增加域名重定向。
 当前版本信息可通过管理入口查看，或者:  
 
 > `./janusec --version`  
+
+### V0.9.9升级到V0.9.10  
+
+V0.9.10启用nftables，用于拦截CC攻击，减轻应用网关压力。  
+
+CentOS 7默认没有安装nftables，需要手工安装并启动：  
+
+> #yum -y install nftables  
+> #systemctl enable nftables  
+> #systemctl start nftables  
+
+CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：  
+
+> #systemctl enable firewalld  
+> #systemctl start firewalld  
+
+然后覆盖安装即可：  
+
+> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
+> #`tar zxf ./janusec-latest.tar.gz`  
+> #`cd /data/janusec-0.9.10/`  
+> #`./install.sh`  
+> #`systemctl restart janusec`  
 
 
 ### V0.9.5+ 升级到V0.9.9  
@@ -54,7 +78,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 
 > #`systemctl stop janusec`  
 
-然后再参考上述V0.9.7升级到V0.9.9的过程。
+然后再参考上述V0.9.5+升级到V0.9.9的过程。
 
 如果:
 
