@@ -35,7 +35,7 @@ nftables is not installed for CentOS 7 by default, installation is required:
 > #systemctl enable nftables  
 > #systemctl start nftables  
 
-nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：  
+nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld ：  
 
 > #systemctl enable firewalld  
 > #systemctl start firewalld  
@@ -58,7 +58,7 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.9   
+> #cd janusec-0.9.11   
 > #./install.sh   
 
 Select `1. Primary Node`, then it will:   

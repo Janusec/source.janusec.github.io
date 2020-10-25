@@ -124,7 +124,5 @@ At least Go 1.14+ .
 
 ### Code
 
-> `go get -u github.com/Janusec/janusec`  
-
-git clone is not preferred.  
+> git clone https://github.com/Janusec/janusec.git   
 

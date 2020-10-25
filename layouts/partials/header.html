@@ -5,7 +5,7 @@
         <ul class="navbar-nav">
           {{ range .Site.Menus.main }}
           <li class="nav-item">
-            <a class="{{if eq $.URL .URL}}active{{end}} nav-link" href="{{ .URL }}">
+            <a class="{{if eq $.Permalink .URL}}active{{end}} nav-link" href="{{ .URL }}">
                   {{ .Name }}
             </a>
           </li>            

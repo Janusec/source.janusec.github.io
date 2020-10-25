@@ -135,9 +135,8 @@ table inet janusec { # handle 20
 
 ### 代码获取
 
-> `go get -u github.com/Janusec/janusec`  
+> git clone https://github.com/Janusec/janusec.git  
 
-不推荐使用git clone方式。
 
 
 
