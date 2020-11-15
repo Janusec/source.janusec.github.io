@@ -12,8 +12,10 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.11 (Oct 24, 2020)   
-v0.9.11 (Oct 24, 2020)： Add health check for backend servers, add CSP
+Latest version: v0.9.12 (Nov 14, 2020)   
+
+v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.  
+v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP
 v0.9.10 (Sep 26, 2020): Add nftables support for CC defense  
 v0.9.9 (Jun 19, 2020): Add static files cache  
 v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.  
@@ -45,11 +47,13 @@ Then, update JANUSEC like this:
 
 > #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
 > #`tar zxf ./janusec-latest.tar.gz`  
-> #`cd /data/janusec-0.9.11/`  
+> #`cd /data/janusec-0.9.12/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
 #### From V0.9.5~V0.9.8  
+
+Step 1:  
 
 config.json changed in V0.9.9, so backup and new config.json is required:   
 
@@ -57,15 +61,21 @@ config.json changed in V0.9.9, so backup and new config.json is required:
 > #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
 > #`tar zxf ./janusec-latest.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
-> #`cp ./janusec-0.9.11/config.json.primary_bak /usr/local/janusec/config.json`  
+> #`cp ./janusec-0.9.12/config.json.primary_bak /usr/local/janusec/config.json`  
 
 Edit `/usr/local/janusec/config.json`, refer to [Configuration File](/documentation/configuration/), set database information.    
 
 > #`vi /usr/local/janusec/config.json`  
 
-then install the latest version（config.json will not be overwrote if it exists.）：  
+Step 2:  
 
-> #`cd /data/janusec-0.9.11/`  
+Check nftables started.  
+
+Step 3:  
+
+Install the latest version（config.json will not be overwrote if it exists.）：  
+
+> #`cd /data/janusec-0.9.12/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -73,11 +83,18 @@ then install the latest version（config.json will not be overwrote if it exists
 
 0.9.5 changed the service type, so before installation:  
 
+Step 1:  
+
 > #`systemctl stop janusec`  
 
 stop the service.   
 
-Next, backup /usr/local/janusec/config.json or record the password in it.   
+Step 2:  
+Check nftables started.  
+
+Step 3:  
+
+Backup /usr/local/janusec/config.json or record the password in it.   
 Delete /usr/local/janusec/config.json , then install script will copy a new config.json .  
 Install latest Janusec, and check config.json to fill in the password.  
 
