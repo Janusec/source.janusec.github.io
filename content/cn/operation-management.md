@@ -95,7 +95,7 @@ PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安�
 
 接下来，在PostgreSQL的指令控制台继续操作：      
 
-> postgres=\# create user `janusec` with password '`your_password`';  
+> postgres=\# create user `janusec` with password &#39;`your_password`&#39;;  
 > postgres=\# create database janusec owner janusec;   
 > postgres=\# grant all privileges on database janusec to janusec;  
 > postgres=\# \q   

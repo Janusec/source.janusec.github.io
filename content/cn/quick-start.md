@@ -60,7 +60,7 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.12   
+> #cd janusec-0.9.xx   
 > #./install.sh   
 
 选择 `1. Primary Node`   

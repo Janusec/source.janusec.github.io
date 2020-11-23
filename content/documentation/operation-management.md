@@ -89,14 +89,14 @@ if the link outdated, copy the right link from `https://yum.postgresql.org/repop
 
 > #`yum install postgresql10-server`   
 > #`/usr/pgsql-10/bin/postgresql-10-setup initdb`   
-> #`systemctl restart postgresql-10.service`
+> #`systemctl restart postgresql-10.service`  
 > #`su - postgres`  
 > -bash-4.2$ `psql`   
 
 
 PostgreSQL Shell   
 
-> postgres=\# create user `janusec` with password '`your_password`';  
+> postgres=\# create user `janusec` with password &#39;`your_password`&#39;;  
 > postgres=\# create database janusec owner janusec;   
 > postgres=\# grant all privileges on database janusec to janusec;  
 > postgres=\# \q   

@@ -12,9 +12,10 @@ weight: 660
 
 > 本文仅供旧版本升级参考，新安装请忽略。  
 
-最新版本: v0.9.12 (2020.11.14)  
+最新版本: v0.9.13 (2020.11.22)  
 
 版本历史:   
+v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整  
 v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化
 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP
 v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod   
@@ -28,6 +29,16 @@ v0.9.6 (2020.02.27): 增加域名重定向。
 当前版本信息可通过管理入口查看，或者:  
 
 > `./janusec --version`  
+
+### 从v0.9.10+升级 
+
+不用卸载，直接覆盖安装即可。  
+
+> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
+> #`tar zxf ./janusec-latest.tar.gz`  
+> #`cd /data/janusec-0.9.xx/`  
+> #`./install.sh`  
+> #`systemctl restart janusec`  
 
 ### 从V0.9.9升级  
 
@@ -48,7 +59,7 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 
 > #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
 > #`tar zxf ./janusec-latest.tar.gz`  
-> #`cd /data/janusec-0.9.12/`  
+> #`cd /data/janusec-0.9.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -62,7 +73,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 > #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
 > #`tar zxf ./janusec-latest.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
-> #`cp ./janusec-0.9.12/config.json.primary_bak /usr/local/janusec/config.json`  
+> #`cp ./janusec-0.9.xx/config.json.primary_bak /usr/local/janusec/config.json`  
 
 需要编辑新的`/usr/local/janusec/config.json`，参考[配置文件](/cn/configuration/)，重新设置数据库账号口令等信息。  
 
@@ -74,7 +85,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 第三步：  
 正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：  
 
-> #`cd /data/janusec-0.9.12/`  
+> #`cd /data/janusec-0.9.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 

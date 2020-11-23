@@ -12,8 +12,9 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.12 (Nov 14, 2020)   
+Latest version: v0.9.13 (Nov 22, 2020)   
 
+v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton.    
 v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.  
 v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP
 v0.9.10 (Sep 26, 2020): Add nftables support for CC defense  
@@ -27,6 +28,16 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
 The version information is available at admin portal, or:  
 
 > `./janusec --version`  
+
+#### From v0.9.10+ 
+
+Update JANUSEC like this:     
+
+> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
+> #`tar zxf ./janusec-latest.tar.gz`  
+> #`cd janusec-0.9.xx`  
+> #`./install.sh`  
+> #`systemctl restart janusec`  
 
 #### From V0.9.9  
 
@@ -47,7 +58,7 @@ Then, update JANUSEC like this:
 
 > #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
 > #`tar zxf ./janusec-latest.tar.gz`  
-> #`cd /data/janusec-0.9.12/`  
+> #`cd /data/janusec-0.9.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -61,7 +72,7 @@ config.json changed in V0.9.9, so backup and new config.json is required:
 > #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
 > #`tar zxf ./janusec-latest.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
-> #`cp ./janusec-0.9.12/config.json.primary_bak /usr/local/janusec/config.json`  
+> #`cp ./janusec-0.9.xx/config.json.primary_bak /usr/local/janusec/config.json`  
 
 Edit `/usr/local/janusec/config.json`, refer to [Configuration File](/documentation/configuration/), set database information.    
 
@@ -75,7 +86,7 @@ Step 3:
 
 Install the latest version（config.json will not be overwrote if it exists.）：  
 
-> #`cd /data/janusec-0.9.12/`  
+> #`cd /data/janusec-0.9.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 

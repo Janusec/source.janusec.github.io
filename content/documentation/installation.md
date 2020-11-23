@@ -49,7 +49,7 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.12   
+> #cd janusec-0.9.xx   
 > #./install.sh   
 
 Select `1. Primary Node`, then it will:   
