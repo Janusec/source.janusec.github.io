@@ -7,5 +7,5 @@ date: 2018-05-11T21:03:34+08:00
 draft: false
 doc: "/cn/quick-start/"
 product: "Janusec Application Gateway" 
-slogan: "构建可扩展的应用安全基础设施"
+slogan: "快速&安全的应用交付"
 ---

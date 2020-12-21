@@ -40,7 +40,7 @@ The following is based on Janusec Application Gateway V0.9.9, and use `//` as co
         },
         "oauth": {                    // OAuth2
             "enabled": false,         // true: Enable LDAP or OAuth2 Authentication
-            "provider": "wxwork",     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu)
+            "provider": "wxwork",     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu), cas2(CAS Server)
             "wxwork": {               // WeChat Work
                 "display_name": "Login with WeChat Work",     
                 // Only http/https and domain changable, don't use port number
@@ -78,6 +78,16 @@ The following is based on Janusec Application Gateway V0.9.9, and use `//` as co
                 "using_tls":false,
                 // Enable Authenticator (Google Authenticator or Microsoft Authenticator)
                 "authenticator_enabled": false
+            },
+            "cas2": {
+                // Show on UI
+                "display_name": "Login with CAS 2.0",
+
+                // Entrance of the CAS Server, end with /cas   
+                "entrance": "https://cas_server/cas",
+
+                // callback address, using the domain name of the gateway, and end with /oauth/cas2, no port number
+                "callback": "http://gate.janusec.com/oauth/cas2"
             }
         }
     },

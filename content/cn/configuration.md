@@ -41,7 +41,7 @@ weight: 350
         },
         "oauth": {                    // OAuth2统一身份认证
             "enabled": false,         // 设置为true时，启用OAuth2统一身份认证
-            "provider": "wxwork",     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)
+            "provider": "wxwork",     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)、cas2(CAS Server)  
             "wxwork": {               // 企业微信配置
                 // 登录界面显示
                 "display_name": "Login with WeChat Work",     
@@ -101,6 +101,16 @@ weight: 350
                 // 是否启用Authenticator认证码双因子认证
                 // 需要安装手机APP（Google Authenticator或Microsoft Authenticator）
                 "authenticator_enabled": false
+            },
+            "cas2": {
+                // 显示在登录界面
+                "display_name": "Login with CAS 2.0",
+
+                // CAS服务器入口，使用/cas结尾   
+                "entrance": "https://cas_server/cas",
+
+                // 回调地址，使用网关域名，以/oauth/cas2结尾，不带端口号
+                "callback": "http://gate.janusec.com/oauth/cas2"
             }
         }
     },

@@ -7,5 +7,5 @@ date: 2018-05-11T21:03:34+08:00
 draft: false
 doc: "/documentation/quick-start/"
 product: "Janusec Application Gateway" 
-slogan: "Build Scalable Application Security Infrastructures."
+slogan: "Fast and Secure Application Delivery"
 ---

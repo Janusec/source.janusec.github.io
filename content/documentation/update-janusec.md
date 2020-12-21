@@ -12,8 +12,9 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.13 (Nov 22, 2020)   
+Latest version: v0.9.14 (Dec 21, 2020)   
 
+v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA
 v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton.    
 v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.  
 v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP
