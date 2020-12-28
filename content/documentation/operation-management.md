@@ -110,8 +110,9 @@ Modified Authentication Method in pg_hba.conf:
 
 > `host    all    all    127.0.0.1/32   md5`     
 
-Restart PostgreSQL Service  
+Set PostgreSQL stard when boot, and restart PostgreSQL Service  
 
+> systemctl enable postgresql-10
 > systemctl restart postgresql-10.service    
 
 

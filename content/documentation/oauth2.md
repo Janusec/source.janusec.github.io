@@ -1,30 +1,30 @@
 ---
-title: "OAuth2身份认证"
+title: "OAuth2 Authentication"
 keywords: "Janusec, Application Gateway, WAF, Web Application Firewall, Web应用防火墙, OAuth2"
-description: "Janusec应用网关身份认证管理"
+description: "Janusec Authentication"
 date: 2020-03-28T23:04:25+08:00
 draft: false
 weight: 650
 ---
 
-# OAuth2统一身份认证    
+# OAuth2 Authentication      
 ----  
 
-### 简介  
+### Introduction  
 
-Janusec Application Gateway支持如下身份认证：  
+Janusec Application Gateway supports the following authentication：  
 
 * LDAP  
 * CAS 2.0  
-* 企业微信扫码登录  
-* 钉钉扫码登录  
-* 飞书扫码登录   
+* WeWork  
+* DingTalk  
+* Feishu   
 
-并同时作用于管理后台，以及员工访问内网应用。   
+Used for janusec-admin, and internal applications, for employees.  
 
-### 配置  
+### Configuration  
 
-如需启用，请在配置文件config.json中开启：  
+Enable authentication in config.json :   
 
 ```
 "oauth": {
@@ -34,20 +34,18 @@ Janusec Application Gateway支持如下身份认证：
 }
 ```
 
-上述provider中，`ldap`表示LDAP认证，`cas2`表示CAS 2.0认证，`wxwork`表示企业微信扫码登录，`dingtalk`表示钉钉扫码登录，`feishu`表示飞书扫码登录。  
+provider, `ldap` means LDAP authentication，`cas2` means CAS 2.0,`wxwork` means WxWork, `dingtalk` means DingTalk, `feishu` means Feishu.    
 
-### 应用如何获取用户身份  
+### How to Get UserID in Applications    
 
-Janusec认证通过后，会在HTTP请求的头部添加两行：  
+Janusec will add the following headers if authentication passed.     
 
-> X-Auth-Token: `Access-Token`  （备注： 0.9.15使用`X-Auth-Token`替换之前的`Authorization`）     
+> X-Auth-Token: `Access-Token`  (Note: 0.9.15 uses `X-Auth-Token` instead previous `Authorization`)     
 > X-Auth-User: `UserID`  
 
+The application can be used without modification.   
 
-
-应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。  
-
-### LDAP配置  
+### LDAP  
 
 在配置文件的`"ldap"`字段：  
 
@@ -60,17 +58,18 @@ LDAP登录入口(配置一个常用的应用域名作为网关的访问域名，
 > "entrance": "`https://your_domain.com`/ldap/login",  
 
 
-LDAP服务器地址（格式采用 域名:端口 ，如果启用TLS，请注意修改端口号）：  
+LDAP服务器地址(格式采用 域名:端口 ，如果启用TLS，请注意修改端口号)：  
 
 > "address": "ldap_domain:389"  
 
-LDAP DN区分名称（需要根据实际DN修改，{uid}请保持不变）：  
+LDAP DN区分名称(需要根据实际DN修改，{uid}请保持不变)：  
 
 > "dn": "uid={uid},ou=People,dc=janusec,dc=com",
 
-是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：  
+是否启用TLS加密传输(如果启用，请一并检查LDAP服务器端口，默认636)：  
 
 > "using_tls": false   
+
 
 ### CAS 2.0  
 
@@ -151,15 +150,9 @@ appsecret即上述自建应用的Secret，请据实修改。
 > "appsecret": "ihUBspRAG1PtNdDLUZ"     
 
 
+### Logout   
 
-
-### 退出登录  
-
-后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。  
-
-### 原理介绍与演示  
-
-原理介绍与演示效果，参见： [使用JANUSEC应用网关给内部网站添加身份认证](https://www.janusec.com/articles/opensource/1585458493.html)  
+Just add one link `/oauth/logout` on your application.    
 
 
 ### 多节点注意事项  

@@ -19,6 +19,12 @@ weight: 100
 
 
 ##### Console  
+
 > wget `https://www.janusec.com/download/janusec-latest.tar.gz`   
+
+or
+
+> wget `http://demo.janusec.com/download/janusec-latest.tar.gz`  
+
 
 

@@ -109,9 +109,10 @@ PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安�
 
 > `host    all    all    127.0.0.1/32   md5`     
 
-重启 PostgreSQL 服务   
+将PostgreSQL设置为开机启动，并重启 PostgreSQL 服务   
 
-> systemctl restart postgresql-10.service    
+> systemctl enable postgresql-10
+> systemctl restart postgresql-10     
 
 
 #### 为Web管理启用 HTTPS  

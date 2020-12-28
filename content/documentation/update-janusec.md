@@ -12,14 +12,15 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.14 (Dec 21, 2020)   
+Latest version: v0.9.15 (Dec 27, 2020)   
 
-v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA
-v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton.    
-v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.  
-v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP
-v0.9.10 (Sep 26, 2020): Add nftables support for CC defense  
-v0.9.9 (Jun 19, 2020): Add static files cache  
+v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured  
+v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA  
+v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured  (example: IP address used), and API interface optimizaiton.    
+v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.   
+v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP  
+v0.9.10 (Sep 26, 2020): Add nftables support for CC defense   
+v0.9.9 (Jun 19, 2020): Add static files cache   
 v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.  
 v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.  
 v0.9.6 (Feb 27, 2020): Add domain 301 redirect.  
