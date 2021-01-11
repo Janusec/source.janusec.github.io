@@ -12,8 +12,9 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.15 (Dec 27, 2020)   
+Latest version: v0.9.16 (Jan 10, 2021)   
 
+v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block   
 v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured  
 v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA  
 v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured  (example: IP address used), and API interface optimizaiton.    
