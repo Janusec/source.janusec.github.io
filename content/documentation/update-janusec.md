@@ -12,8 +12,9 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v0.9.16 (Jan 10, 2021)   
+Latest version: v1.0.0 (Apr 04, 2021)   
 
+v1.0.0  (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration  
 v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block   
 v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured  
 v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA  
@@ -36,9 +37,9 @@ The version information is available at admin portal, or:
 
 Update JANUSEC like this:     
 
-> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
-> #`tar zxf ./janusec-latest.tar.gz`  
-> #`cd janusec-0.9.xx`  
+> #`wget https://www.janusec.com/download/janusec-1.0.0-arm64.tar.gz`  
+> #`tar zxf ./janusec-1.0.0-arm64.tar.gz`  
+> #`cd janusec-1.0.xx`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -59,9 +60,9 @@ nftables has been installed for CentOS 8, and as backend of firewalld, just enab
 
 Then, update JANUSEC like this:  
 
-> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
-> #`tar zxf ./janusec-latest.tar.gz`  
-> #`cd /data/janusec-0.9.xx/`  
+> #`wget https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.0.0-amd64.tar.gz`  
+> #`cd /data/janusec-1.0.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -72,10 +73,10 @@ Step 1:
 config.json changed in V0.9.9, so backup and new config.json is required:   
 
 > #`cd /data/`  
-> #`wget https://www.janusec.com/download/janusec-latest.tar.gz`  
-> #`tar zxf ./janusec-latest.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.0.0-amd64.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
-> #`cp ./janusec-0.9.xx/config.json.primary_bak /usr/local/janusec/config.json`  
+> #`cp ./janusec-1.0.xx/config.json.primary_bak /usr/local/janusec/config.json`  
 
 Edit `/usr/local/janusec/config.json`, refer to [Configuration File](/documentation/configuration/), set database information.    
 
@@ -89,7 +90,7 @@ Step 3:
 
 Install the latest version（config.json will not be overwrote if it exists.）：  
 
-> #`cd /data/janusec-0.9.xx/`  
+> #`cd /data/janusec-1.0.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 

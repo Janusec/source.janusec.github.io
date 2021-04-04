@@ -74,8 +74,22 @@ weight: 600
 > #`systemctl status janusec`  
 
 #### PostgreSQL
-PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令.    
-下面以 CentOS7 和 PostgreSQL 为例，简述 PostgreSQL 的安装步骤。   
+PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令.    
+下面简述 PostgreSQL 的安装步骤。   
+
+##### 在Debian 10中部署PostgreSQL 11
+
+> apt install postgresql  
+> su - postgres  
+> psql  
+
+> create user janusec with password 'J@nusec123';  
+> create database janusec owner janusec;  
+> grant all privileges on database janusec to janusec;  
+> \q  
+> exit  
+> psql -h 127.0.0.1 -U janusec -W janusec  
+
 
 ##### 在 CentOS 7 中部署 PostgreSQL 10
 主要参考 https://wiki.postgresql.org/wiki/YUM_Installation
@@ -111,7 +125,7 @@ PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安�
 
 将PostgreSQL设置为开机启动，并重启 PostgreSQL 服务   
 
-> systemctl enable postgresql-10
+> systemctl enable postgresql-10   
 > systemctl restart postgresql-10     
 
 

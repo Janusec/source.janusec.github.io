@@ -10,15 +10,15 @@ weight: 350
 # 配置文件
 ----
 
-#### 配置文件路径
+### 配置文件路径
 ----
 生产环境配置文件为 `/usr/local/janusec/config.json`  
 开发环境配置文件为 `./config.json`
 
-#### 配置项说明
+### 配置项说明
 ----
 
-以下为Janusec Application Gateway V0.9.9 配置文件参考。  
+以下为Janusec Application Gateway V1.0.0+ 配置文件参考。  
 由于JSON格式支持的注释格式看起来不方便，下面采用`//`作为注释说明，实际使用时需要删除注释。
 
 ```
@@ -32,14 +32,34 @@ weight: 350
             "portal": "https://gate.janusec.com:9443/janusec-admin/",   // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号
             "webssh_enabled": false   // 为true时，允许使用Web SSH运维功能
         },
-        "database": {                 // PostgreSQL 数据库配置，需要至少使用9.3以上版本
+        "database": {                 // PostgreSQL 10/11/12+  
             "host": "127.0.0.1",      // PostgreSQL IP地址
             "port": "5432",           // PostgreSQL 监听端口，默认5432
             "user": "postgres",       // 数据库用户名
             "password": "123456",     // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密
             "dbname": "janusec"       // 数据库名
-        },
-        "oauth": {                    // OAuth2统一身份认证
+        }
+    },
+    "replica_node": {      // 副本节点配置
+        // node_key在主节点的后台管理-节点管理中复制
+        "node_key": "",  
+        // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口
+        // 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.0.0.1:9999(实际不用)
+        "sync_addr": "http://gateway.primary_node.com:9080/janusec-admin/api"
+    }
+}
+```
+
+### 升级说明
+---
+
+从版本1.0.0开始，OAuth身份认证配置迁移到Web管理界面，config.json文件中不再需要oauth字段。  
+如果从0.9.X版本升级而来，config.json文件中的该字段不会被自动删除，虽不影响网关运行，但建议手工删除（连同它前面的逗号）。   
+以下是0.9.X版本中的oauth配置参考：   
+
+
+```
+"oauth": {                    // OAuth2统一身份认证
             "enabled": false,         // 设置为true时，启用OAuth2统一身份认证
             "provider": "wxwork",     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)、cas2(CAS Server)  
             "wxwork": {               // 企业微信配置
@@ -113,13 +133,4 @@ weight: 350
                 "callback": "http://gate.janusec.com/oauth/cas2"
             }
         }
-    },
-    "replica_node": {      // 副本节点配置
-        // node_key在主节点的后台管理-节点管理中复制
-        "node_key": "",  
-        // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口
-        // 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.0.0.1:9999(实际不用)
-        "sync_addr": "http://gateway.primary_node.com:9080/janusec-admin/api"
-    }
-}
 ```

@@ -80,6 +80,20 @@ PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package,
 
 Before the installation of the Primary Node, dbname, dbuser and password should be ready.  
 
+##### Example with Debian 10 and PostgreSQL 11
+
+> apt install postgresql  
+> su - postgres  
+> psql  
+
+> create user janusec with password 'J@nusec123';  
+> create database janusec owner janusec;  
+> grant all privileges on database janusec to janusec;  
+> \q  
+> exit  
+> psql -h 127.0.0.1 -U janusec -W janusec  
+
+
 ##### Example with CentOS 7 and PostgreSQL 10
 Refer to https://wiki.postgresql.org/wiki/YUM_Installation
 
@@ -112,7 +126,7 @@ Modified Authentication Method in pg_hba.conf:
 
 Set PostgreSQL stard when boot, and restart PostgreSQL Service  
 
-> systemctl enable postgresql-10
+> systemctl enable postgresql-10   
 > systemctl restart postgresql-10.service    
 
 

@@ -17,9 +17,10 @@ weight: 1200
 
 Operating System should be x86_64 and one of the following:  
 
+* Debian 9/10+ (Debian 10+ is preferred)  
 * CentOS 7/8+  
 * RHEL 7/8+  
-* Debian 9/10+  
+
 
 ### Time
 
@@ -46,7 +47,7 @@ Check version within PSQL Shell:
 
 > select version();  
 
-The version must be greater than `9.3`.  
+The version must be greater than `10`.  
 
 ### Ports
 
@@ -91,6 +92,11 @@ table inet janusec { # handle 20
 
 ```
 
+If your IP was blocked during the test, the firewall rules can be cleared (the follow-up will still be triggered normally):
+
+> nft flush ruleset  
+
+Or reduce the block time on the WAF/CC configuration.
 
 ### More Information
 
@@ -120,7 +126,7 @@ Different configuration files used, `./config.json` for development , and `/usr/
 
 ### Golang
 
-At least Go 1.14+ .  
+At least Go 1.16+ .  
 
 ### Code
 

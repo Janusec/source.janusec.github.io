@@ -18,7 +18,7 @@ Development environment: `./config.json`
 #### Configuration Items
 ----
 
-The following is based on Janusec Application Gateway V0.9.9, and use `//` as comment, please delete `// comment` before using it.
+The following is based on Janusec Application Gateway V1.0.0+, and use `//` as comment, please delete `// comment` before using it.
 
 ```
 {
@@ -31,13 +31,33 @@ The following is based on Janusec Application Gateway V0.9.9, and use `//` as co
             "portal": "https://gate.janusec.com:9443/janusec-admin/",   // admin portal, used for OAuth callback, if listen is false, remove colon and port number
             "webssh_enabled": false   // Web SSH Operation permitted when it is true
         },
-        "database": {                 // PostgreSQL 9.3+
+        "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP Address
             "port": "5432",           // PostgreSQL Port, 5432
             "user": "postgres",       // PostgreSQL user
             "password": "123456",     // PostgreSQL password, less than 32bit
             "dbname": "janusec"       // PostgreSQL database name
-        },
+        }
+    },
+    "replica_node": {      // for replica nodes
+        // copy from the node management
+        "node_key": "",  
+        // If listen is true, IP:Port is required.
+        // If https is required, it need a seperate domain for primary node, and an empty applicaiton should be configured, destination may be 127.0.0.1:9999 which not used.
+        "sync_addr": "http://gateway.primary_node.com:9080/janusec-admin/api"
+    }
+}
+```
+
+
+### Upgrade note
+---
+From version 1.0.0, `oauth` configuration removed from config.json to Web Administration UI, and not required in `config.json`.   
+If you upgrade janusec from version 0.9.x, the `oauth` field will not be deleted automatically, it will not affect the gateway working, but manually delete it is preferred (and delete the comma before it).   
+
+Here is the `oauth` field in version 0.9.x for your information:  
+
+```
         "oauth": {                    // OAuth2
             "enabled": false,         // true: Enable LDAP or OAuth2 Authentication
             "provider": "wxwork",     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu), cas2(CAS Server)
@@ -90,13 +110,4 @@ The following is based on Janusec Application Gateway V0.9.9, and use `//` as co
                 "callback": "http://gate.janusec.com/oauth/cas2"
             }
         }
-    },
-    "replica_node": {      // for replica nodes
-        // copy from the node management
-        "node_key": "",  
-        // If listen is true, IP:Port is required.
-        // If https is required, it need a seperate domain for primary node, and an empty applicaiton should be configured, destination may be 127.0.0.1:9999 which not used.
-        "sync_addr": "http://gateway.primary_node.com:9080/janusec-admin/api"
-    }
-}
 ```

@@ -19,17 +19,25 @@ weight: 100
 ## 安装需求  
 ----
 
-| 节点                | 操作系统   | 数据库 |
-|---------------------|--------------------------------------------------|----------|
-| 主节点    | CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）  |   
-| 副本节点  | CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables | 不需要 |  
+| 节点      | 操作系统   | 数据库 |
+|----------|--------------------------------------------------------------------------------|-----------------------|
+| 主节点    | Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12+  |   
+| 副本节点  | Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
 
-本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。  
+备注：  
+本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。   
+Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用`PostgreSQL 10/11/12+`版本 。  
+如果您的PostgreSQL版本为9.3~9.5且无法升级，可安装之前Janusec v0.9.16 。   
+如果您的PostgreSQL版本低于9.3，则无法安装Janusec 。   
   
 
 ## 准备主机防火墙nftables  
 ----
 nftables用于拦截CC攻击，减轻应用网关压力。  
+
+Debian 10安装nftables：  
+
+> apt install nftables  
 
 CentOS 7默认没有安装nftables，需要手工安装并启动：  
 
@@ -53,14 +61,14 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 ----
 ##### 步骤 1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-latest.tar.gz`  
-> $tar zxf ./janusec-latest.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.0.0-amd64.tar.gz  
 
 ##### 步骤 2: 安装
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-0.9.xx   
+> #cd janusec-1.x.x  （根据实际版本号修改）   
 > #./install.sh   
 
 选择 `1. Primary Node`   
