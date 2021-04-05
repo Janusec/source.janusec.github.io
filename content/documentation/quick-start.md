@@ -92,9 +92,6 @@ Now we assume you have `PostgreSQL` installed already, and database name and acc
             "user": "postgres",       // PostgreSQL user
             "password": "123456",     // PostgreSQL password, less than 32bit
             "dbname": "janusec"       // PostgreSQL database name
-        },
-        "oauth": {  
-            ...
         }
     },
     "replica_node": {      // for replica nodes

@@ -98,9 +98,6 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
             "user": "postgres",       // 数据库用户名
             "password": "123456",     // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密
             "dbname": "janusec"       // 数据库名
-        },
-        "oauth": { 
-            ... 
         }
     },
     "replica_node": {
