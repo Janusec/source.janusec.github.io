@@ -92,7 +92,7 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
             "portal": "https://your_gate_domain.com:9443/janusec-admin/",   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
             "webssh_enabled": false   // 为true时，允许使用Web SSH运维功能
         },
-        "database": {                 // PostgreSQL 数据库配置，需要至少使用9.3以上版本
+        "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP地址
             "port": "5432",           // PostgreSQL 监听端口，默认5432
             "user": "postgres",       // 数据库用户名

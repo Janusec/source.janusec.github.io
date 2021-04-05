@@ -12,15 +12,18 @@ weight: 300
 
 ### Requirements
 
-| Role                | Operating System   | Database |
-|---------------------|--------------------------------------------------|----------|
-| Primary Node | CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)  |   
-| Replica Node  | CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables | Not required |  
-
+| Role          | Operating System   | Database |
+|---------------|--------------------------------------------------|----------|
+| Primary Node  | Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | PostgreSQL 10/11/12+   |   
+| Replica Node  | Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | Not required |  
 
 ## Prepare nftables  
 ----
 nftables used for CC defense.    
+
+nftables for Debian 10:    
+
+> apt install nftables   
 
 nftables is not installed for CentOS 7 by default, installation is required:    
 

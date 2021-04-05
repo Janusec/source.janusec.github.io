@@ -76,7 +76,7 @@ or
 > #`systemctl status janusec`  
 
 #### PostgreSQL
-PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package, you should prepare it before installation, required by the Primary Node.   
+PostgreSQL is not included in the release package, you should prepare it before installation, required by the Primary Node.   
 
 Before the installation of the Primary Node, dbname, dbuser and password should be ready.  
 

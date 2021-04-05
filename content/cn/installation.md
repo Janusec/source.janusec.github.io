@@ -11,15 +11,21 @@ weight: 300
 ----
 
 ### 需求
-| 节点                | 操作系统   | 数据库 |
-|---------------------|--------------------------------------------------|----------|
-| 主节点    | CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables | PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）  |   
-| 副本节点  | CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables | 不需要 | 
+
+| 节点      | 操作系统   | 数据库 |
+|----------|--------------------------------------------------------------------------------|-----------------------|
+| 主节点    | Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12+  |   
+| 副本节点  | Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
+
 
 
 ## 准备主机防火墙nftables  
 ----
 nftables用于拦截CC攻击，减轻应用网关压力。  
+
+Debian 10安装nftables：  
+
+> apt install nftables   
 
 CentOS 7默认没有安装nftables，需要手工安装并启动：  
 
