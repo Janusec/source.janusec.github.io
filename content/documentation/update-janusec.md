@@ -37,8 +37,8 @@ The version information is available at admin portal, or:
 
 Update JANUSEC like this:     
 
-> #`wget https://www.janusec.com/download/janusec-1.0.0-arm64.tar.gz`  
-> #`tar zxf ./janusec-1.0.0-arm64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.0.0-amd64.tar.gz`  
 > #`cd janusec-1.0.xx`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  

@@ -38,8 +38,8 @@ v0.9.6 (2020.02.27): 增加域名重定向。
 
 不用卸载，直接覆盖安装即可。  
 
-> #`wget https://www.janusec.com/download/janusec-1.0.0-arm64.tar.gz`  
-> #`tar zxf ./janusec-1.0.0-arm64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.0.0-amd64.tar.gz`  
 > #`cd /data/janusec-1.0.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
