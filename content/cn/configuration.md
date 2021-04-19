@@ -30,7 +30,6 @@ weight: 350
             "listen_http": ":9080",   // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问
             "listen_https": ":9443",  // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问
             "portal": "https://gate.janusec.com:9443/janusec-admin/",   // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号
-            "webssh_enabled": false   // 为true时，允许使用Web SSH运维功能
         },
         "database": {                 // PostgreSQL 10/11/12+  
             "host": "127.0.0.1",      // PostgreSQL IP地址
@@ -97,7 +96,7 @@ weight: 350
                 "callback": "https://your_domain.com/oauth/feishu",
 
                 // 需要在飞书开放平台注册应用并经企业管理员审核通过(名称JANUSEC)
-                // 需要在飞书开放平台后台配置"安全域名"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu" 
+                // 需要在飞书开放平台后台配置"安全设置"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu" 
                 "appid": "cli_9ef21d00e",
                 "appsecret": "ihUBspRAG1PtNdDLUZ"
                 

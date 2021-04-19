@@ -24,17 +24,7 @@ Used for janusec-admin, and internal applications, for employees.
 
 ### Configuration  
 
-Enable authentication in config.json :   
-
-```
-"oauth": {
-            "enabled": true,
-            "provider": "wxwork",
-            ...
-}
-```
-
-provider, `ldap` means LDAP authentication，`cas2` means CAS 2.0,`wxwork` means WxWork, `dingtalk` means DingTalk, `feishu` means Feishu.    
+Enable authentication in Web admin UI. 
 
 ### How to Get UserID in Applications    
 
@@ -47,7 +37,6 @@ The application can be used without modification.
 
 ### LDAP  
 
-在配置文件的`"ldap"`字段：  
 
 登录界面显示:  
 
@@ -64,7 +53,9 @@ LDAP服务器地址(格式采用 域名:端口 ，如果启用TLS，请注意修
 
 LDAP DN区分名称(需要根据实际DN修改，{uid}请保持不变)：  
 
-> "dn": "uid={uid},ou=People,dc=janusec,dc=com",
+> "dn": "uid={uid},ou=People,dc=janusec,dc=com",  
+
+如果是Active Directory，则请将`uid={uid}`修改为`CN={uid}`，其他根据实际修改。   
 
 是否启用TLS加密传输(如果启用，请一并检查LDAP服务器端口，默认636)：  
 
@@ -73,7 +64,6 @@ LDAP DN区分名称(需要根据实际DN修改，{uid}请保持不变)：
 
 ### CAS 2.0  
 
-在配置文件的`"cas2"`字段：  
 
 // 显示在登录界面
 > "display_name": "Login with CAS 2.0",  
@@ -87,7 +77,6 @@ LDAP DN区分名称(需要根据实际DN修改，{uid}请保持不变)：
 
 ### 企业微信配置  
 
-在配置文件的`"wxwork"`字段：  
 
 登录界面显示:  
 
@@ -112,7 +101,6 @@ corpsecret (即上述自建应用的Secret，请据实修改):
 
 ### 钉钉配置  
 
-在配置文件的`"dingtalk"`字段：  
 
 登录界面显示:  
 
@@ -134,7 +122,6 @@ appsecret即上述自建应用的Secret，请据实修改。
 需要在飞书开放平台注册应用(比如名称JANUSEC)并经企业管理员审核通过。  
 需要在飞书开放平台后台配置"安全域名"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu"   
 
-在配置文件的`"feishu"`字段：  
 
 登录界面显示:  
 
@@ -155,11 +142,11 @@ appsecret即上述自建应用的Secret，请据实修改。
 Just add one link `/oauth/logout` on your application.    
 
 
-### 多节点注意事项  
+### Note for multiple nodes  
 
-OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名(不包括单独为主节点申请的域名)，假设为www.your_domain.com 。  
+ 
+If the background management entrance uses OAuth2, you need to configure `portal` in `config.json`, where the domain name should be configured as one of the domain names of any configured application.  
 
-但需要注意的是，DNS解析应确保其对所有应用的解析，在同一个办公场地，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。  
-
+But it should be noted that DNS resolution should ensure that its resolution for all applications, in the same office site, all point to the same gateway. If the application accessed by the employee points to a different gateway address than the callback domain name, OAuth2 will not be available.   
 
 

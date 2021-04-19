@@ -29,7 +29,6 @@ The following is based on Janusec Application Gateway V1.0.0+, and use `//` as c
             "listen_http": ":9080",   // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
             "listen_https": ":9443",  // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
             "portal": "https://gate.janusec.com:9443/janusec-admin/",   // admin portal, used for OAuth callback, if listen is false, remove colon and port number
-            "webssh_enabled": false   // Web SSH Operation permitted when it is true
         },
         "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP Address
@@ -85,7 +84,7 @@ Here is the `oauth` field in version 0.9.x for your information:
                 "appid": "cli_9ef21d00e",
                 "appsecret": "ihUBspRAG1PtNdDLUZ"
                 // Create application JANUSEC is required
-                // "Secure Domain"-"Redirect URL" is required, example: "https://your_domain.com/oauth/feishu" 
+                // "Secure Settings"-"Redirect URL" is required, example: "https://your_domain.com/oauth/feishu" 
             },
             "ldap": {
                 "display_name": "Login with LDAP",
