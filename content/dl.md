@@ -16,17 +16,18 @@ weight: 100
 
 | Type             | Mirror          |   Download                                                                                   |
 |------------------|-----------------|----------------------------------------------------------------------------------------------|
-| Latest Release   | JANUSEC (USA)   | [janusec-1.0.0-amd64.tar.gz](https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz)    |  
-| Latest Release   | Github (USA)    | [Github Release](https://github.com/Janusec/janusec/releases)                                |  
-| Latest Release   | Gitee (China)   | [Gitee Release](https://gitee.com/Janusec/janusec/releases)                                  |  
+| Latest Release   | JANUSEC (USA/美国)   | [janusec-1.1.0-amd64.tar.gz](https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz)    |  
+| All Release      | Github (USA/美国)    | [Github Release](https://github.com/Janusec/janusec/releases)                                |  
+| All Release      | Gitee (China/中国)   | [Gitee Release](https://gitee.com/Janusec/janusec/releases)                                  |  
 
 <br><br>
   
 ### Previous Release    
 
-| Type             | Mirror       |   Download                                                                                   |
+| Version          | Mirror       |   Download                                                                                   |
 |------------------|--------------|----------------------------------------------------------------------------------------------|
-| Previous release | JANUSEC (USA) | [janusec-0.9.16-amd64.tar.gz](https://www.janusec.com/download/janusec-0.9.16-amd64.tar.gz)  | 
+| Latest Release   | Github (USA/美国)    | [Github Release](https://github.com/Janusec/janusec/releases)                                |  
+| Latest Release   | Gitee (China/中国)   | [Gitee Release](https://gitee.com/Janusec/janusec/releases)                                  |  
   
 <br><br>
   

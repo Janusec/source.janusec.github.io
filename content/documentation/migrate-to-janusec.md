@@ -10,6 +10,8 @@ weight: 650
 # Migrate to Janusec Application Gateway  
 ----
 
+Scenario: Migrate the published Web application to be published through the JANUSEC application gateway.   
+
 #### Step 1: Install and Configure Janusec Application Gateway  
 Refer to [Installation](/documentation/installation/), install janusec application gateway and configure digital certificate, application.   
 

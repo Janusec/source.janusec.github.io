@@ -10,8 +10,12 @@ weight: 510
 # 应用管理
 ----
 
-#### 需求  
-如果您需要 `https` 支持，至少需要一个数字证书，参见[证书管理](/cn/certificate-management)。   
+#### HTTPS需求  
+
+如果已经拥有数字证书，可在[证书管理](/cn/certificate-management) 录入。  
+如果您希望JANUSEC自行申请免费的数字证书，可在下方`域名配置`中选择使用`ACME自动证书`（免费证书），并确保域名的DNS已经指向JANUSEC应用网关，用于证书颁发机构验证域名所有权，不用在证书管理中录入（注意：自动证书暂不支持使用通配型域名）。  
+   
+
 
 #### 添加或编辑应用
 打开Web管理门户并导航至`Application Management`。  

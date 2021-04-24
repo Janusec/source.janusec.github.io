@@ -45,10 +45,7 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
 > #systemctl enable nftables  
 > #systemctl start nftables  
 
-CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：  
-
-> #systemctl enable firewalld  
-> #systemctl start firewalld  
+CentOS 8已内置nftables，不需要额外的动作。   
 
 现在，可以通过如下指令查看规则：  
 
@@ -61,8 +58,8 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 ----
 ##### 步骤 1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
-> $tar zxf ./janusec-1.0.0-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.1.0-amd64.tar.gz  
 
 ##### 步骤 2: 安装
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 

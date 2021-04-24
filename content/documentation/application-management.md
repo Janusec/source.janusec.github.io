@@ -11,8 +11,10 @@ weight: 510
 ----
 
 #### Requirements  
-At least one digital certificate is required if you need `https` support.    
-[Certificate Management](/documentation/certificate-management)
+
+If you already have a digital certificate, you can add it under [Certificate Management](/documentation/certificate-management).  
+If you want JANUSEC to apply for a free digital certificate by itself, you can choose to use `ACME automatic certificate` (free certificate) in the `Domain Configuration` below, and ensure that the DNS of the domain name has been pointed to the JANUSEC application gateway for the certification authority to verify the ownership of the domain name , You don’t need to add it under the certificate management (note: automatic certificates do not support wildcard domain names).  
+
 
 #### Add or Edit Application  
 Open web administration portal and navigate to `Application Management`.  

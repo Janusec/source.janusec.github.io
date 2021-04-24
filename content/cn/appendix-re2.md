@@ -10,7 +10,7 @@ weight: 1300
 # 附录1:RE2正则规则解读
 ---
 
-
+JANUSEC应用网关使用[Google RE2正则规则](https://github.com/google/re2/wiki/Syntax) 。   
 
 #### 规则样例1
 
@@ -43,4 +43,5 @@ RE2规则：
 
 > (?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$  
 
-解读：[\w\p{L}]表示任意字母、数字、下划线或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。  
+解读：[\w\p{L}]表示任意字母、数字、下划线或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。   
+中文或其他UNICODE字符，还可以使用`\x{FFFF}`格式，比如`[\x{007F}-\x{FFFF}]+`可匹配中文词语或句子。  

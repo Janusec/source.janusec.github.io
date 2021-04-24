@@ -10,7 +10,7 @@ weight: 200
 # 产品介绍
 ----
 ![应用网关](/images/gateway1.png "Janusec应用网关")  
-Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供Web路由、负载均衡、WAF（Web应用防火墙）等功能，可用于构建安全的、可扩展的应用。  
+Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供WAF（Web应用防火墙）、CC防护、身份认证、安全运维、Web路由、负载均衡、自动化证书等功能，可用于构建安全的、可扩展的应用。  
 
 [Janusec Application Gateway Introduction PDF](/download/Janusec-Application-Gateway.pdf)
 
@@ -18,6 +18,7 @@ Janusec应用网关，一种适用于各种场景（公有云、私有云、传�
 
 #### 产品特点:
 * WAF (Web Application Firewall, Web应用防火墙，天然支持`HTTPS`且不需要Agent )    
+* CC防护（多道防线）  
 * 统一的Web化管理  
 * 证书加密保护   
 * 负载均衡（可扩展的部署架构）   

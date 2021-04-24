@@ -10,6 +10,10 @@ weight: 500
 # Certificate Management
 ----
 
+Scenario: You can add and maintain the digital certificate you already have here (for example, the certificate of a corporate website).    
+
+If you don't have a digital certificate and want JANUSEC to automatically apply for and manage a digital certificate, you can skip this section and do not need to configure it here (usually applicable to personal websites).  
+
 #### Certificate List  
 Open web administration portal and navigate to `Certificate Management`.  
 ![Certificate List](/images/certificate1.png "Certificate Management of Janusec Application Gateway")
@@ -26,3 +30,10 @@ For test purpose, when filled in the first field (`Common Name or Subject Altern
 #### Certificate Protection
 > Private key is encrypted and stored in the database.   
 > Different encryption keys used for each instance.   
+
+
+#### ACME Automatic Certificate Description
+
+If you want JANUSEC to automatically apply for and manage digital certificates, you don't need to add them in the `Certificate Management` module, but choose to use `ACME Automatic Certificate` when configuring the domain name under the menu `Application Management`.  
+
+The above domain name needs to be pointed to the JANUSEC application gateway, which is used by the certificate authority to verify the ownership of the domain name.  

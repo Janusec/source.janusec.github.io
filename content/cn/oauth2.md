@@ -19,6 +19,7 @@ Janusec Application Gateway支持如下身份认证：
 * 企业微信扫码登录  
 * 钉钉扫码登录  
 * 飞书扫码登录   
+* Lark扫码登录  
 
 并同时作用于管理后台，以及员工访问内网应用。   
 
@@ -119,7 +120,7 @@ appsecret即上述自建应用的Secret，请据实修改。
 ### 飞书配置  
 
 需要在飞书开放平台注册Web应用(比如名称JANUSEC)并经企业管理员审核通过。  
-需要在飞书开放平台后台配置"安全域名"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu"   
+需要在飞书开放平台后台配置"安全设置"-"重定向URL"，配置为"https://your_domain.com/oauth/feishu"   
 
 
 登录界面显示:  
@@ -128,14 +129,33 @@ appsecret即上述自建应用的Secret，请据实修改。
 
 回调地址(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):  
 
-> "callback": "`https://your_domain.com`/oauth/dingtalk",  
+> "callback": "`https://your_domain.com`/oauth/feishu",  
 
 请在飞书开放平台注册一个自建应用，获取下面的信息。
 
 > "appid": "cli_9ef21d00e",  
 > "appsecret": "ihUBspRAG1PtNdDLUZ"     
 
+### Lark配置
 
+首先在[Lark Developer](https://open.larksuite.com/)配置应用，其他配置跟飞书配置基本一致。  
+
+First register a Web application at [Lark Developer](https://open.larksuite.com/), and it should be approved by enterprise administrtor. And, configure under menu "Security Settings"-"Redirect URLs", Add "https://your_domain.com/oauth/lark"   
+
+Second configure under JANUSEC:  
+
+Display name on UI:  
+
+> "display_name": "Login with Lark",   
+
+Callback address, change the scheme (http/https) and one of your application domain name, do not change `/oauth/feishu`, do not use port number.  
+
+> "callback": "`https://your_domain.com`/oauth/lark",  
+
+Get the application information under Lark Developer:  
+
+> "appid": "cli_9ef21d00e",  
+> "appsecret": "ihUBspRAG1PtNdDLUZ"   
 
 
 ### 退出登录  

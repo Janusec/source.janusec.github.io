@@ -39,10 +39,7 @@ nftables is not installed for CentOS 7 by default, installation is required:
 > #systemctl enable nftables  
 > #systemctl start nftables  
 
-nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld ：  
-
-> #systemctl enable firewalld  
-> #systemctl start firewalld  
+nftables has been installed for CentOS 8.   
 
 Now, you can view the ruleset through:  
 
@@ -55,8 +52,8 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 ----
 ##### Step 1: Download
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz`  
-> $tar zxf ./janusec-1.0.0-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.1.0-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
