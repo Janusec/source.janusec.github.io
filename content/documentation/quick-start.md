@@ -115,11 +115,11 @@ This is the administration address for Janusec Application Gateway.
 Login with default username `admin` and password `J@nusec123` .
 
 
-## Certificate (required for `HTTPS`)
+## Certificate (optional)
 ----
 If you only use HTTP, skip this step.  
 Open http://`your_ip_address`/janusec-admin/ and add a new certificate.
-If you don't have a certificate, you can get a free certificate from `Let's Encrypt` or let Janusec produce a self-signed certificate( only for test).
+If you don't have a certificate, you can get a free certificate from `Let's Encrypt`, or let Janusec produce a self-signed certificate( only for test), or skip certificate configuration and select `ACME Automatic Certificate` under `Application Management`.
 
 ## Application (required)
 ----

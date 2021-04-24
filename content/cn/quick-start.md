@@ -12,8 +12,10 @@ weight: 100
 
 [Switch to English Edition of Quick Start](/documentation/quick-start/)   
 
+如果您只是想快速体验一下，可试试[JANUSEC应用网关的Docker镜像](https://www.janusec.com/articles/opensource/1615470598.html) ，并跳过下面的安装部分。    
 
-本入门指导将安装一个单节点（主节点）的Janusec[应用网关](https://www.janusec.com/)（网关WAF）.   
+本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。      
+
 
 
 ## 安装需求  
@@ -122,12 +124,12 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 默认口令：`J@nusec123`   
 
 
-## 配置数字证书 (如使用HTTPS，必选)
+## 配置数字证书 (可选)
 ----
 如果仅使用HTTP，不使用HTTPS，可跳过此步骤；但强烈建议配置证书并启用HTTPS。
 
 使用浏览器打开 http://`您的网关IP地址`/janusec-admin/ 并[添加一张数字证书](/cn/certificate-management/)。
-如果您还没有数字证书，可以从`Let's Encrypt`申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途）。
+如果您还没有数字证书，可以从`Let's Encrypt`申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途），或者跳过证书配置，在应用管理中配置使用`ACME自动证书`。  
 
 ## 配置Web应用 (必选)
 ----
