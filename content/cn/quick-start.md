@@ -88,8 +88,7 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
             "listen": true,           // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录
             "listen_http": ":9080",   // 格式为 :port 或 内网IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问
             "listen_https": ":9443",  // 格式为 :port 或 内网IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问
-            "portal": "https://your_gate_domain.com:9443/janusec-admin/",   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
-            "webssh_enabled": false   // 为true时，允许使用Web SSH运维功能
+            "portal": "https://your_gate_domain.com:9443/janusec-admin/"   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
         },
         "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP地址
