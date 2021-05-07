@@ -12,9 +12,10 @@ weight: 660
 
 > 本文仅供旧版本升级参考，新安装请忽略。  
 
-最新版本: v1.1.0 (2021.04.24)  
+最新版本: v1.2.0 (2021.05.05)  
 
 版本历史:   
+v1.2.0  (2021.05.05): 增加5秒盾和SMTP提醒  
 v1.1.0  (2021.04.24): 增加Lark扫码认证、操作日志，并对WAF模块进行优化  
 v1.0.0  (2021.04.04): 增加ACME自动证书、来源网站统计（Referer）、身份认证配置Web化   
 v0.9.16 (2021.01.10): 增加IP地址策略（放行Allow，阻断Block）   
@@ -39,8 +40,8 @@ v0.9.6 (2020.02.27): 增加域名重定向。
 
 不用卸载，直接覆盖安装即可。  
 
-> #`wget https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.1.0-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.0-amd64.tar.gz`  
 > #`cd /data/janusec-1.0.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
@@ -62,8 +63,8 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 
 然后覆盖安装即可：  
 
-> #`wget https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.1.0-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.0-amd64.tar.gz`  
 > #`cd /data/janusec-1.0.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
@@ -72,11 +73,11 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 ### 从V0.9.5~V0.9.8 升级    
 
 第一步：  
-V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在`/data/janusec-1.1.0-amd64.tar.gz`，升级步骤参考：  
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在`/data/janusec-1.2.0-amd64.tar.gz`，升级步骤参考：  
 
 > #`cd /data/`  
-> #`wget https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.1.0-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.0-amd64.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
 > #`cp ./janusec-1.0.xx/config.json.primary_bak /usr/local/janusec/config.json`  
 
