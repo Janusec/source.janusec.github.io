@@ -12,8 +12,9 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v1.2.0 (May 05, 2021)   
+Latest version: v1.2.1 (May 09, 2021)   
 
+v1.2.1  (May 09, 2021): Add SMTP test button, and CAPTCHA language init   
 v1.2.0  (May 05, 2021): Add 5-second shield and SMTP notifications  
 v1.1.0  (Apr 24, 2021): Add Lark authentication, operation log, and WAF optimization    
 v1.0.0  (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration  
