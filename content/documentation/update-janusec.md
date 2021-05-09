@@ -39,8 +39,8 @@ The version information is available at admin portal, or:
 
 Update JANUSEC like this:     
 
-> #`wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.0-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.1-amd64.tar.gz`  
 > #`cd janusec-1.2.xx`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
@@ -62,8 +62,8 @@ nftables has been installed for CentOS 8, and as backend of firewalld, just enab
 
 Then, update JANUSEC like this:  
 
-> #`wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.0-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.1-amd64.tar.gz`  
 > #`cd /data/janusec-1.0.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
@@ -75,8 +75,8 @@ Step 1:
 config.json changed in V0.9.9, so backup and new config.json is required:   
 
 > #`cd /data/`  
-> #`wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.0-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.1-amd64.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
 > #`cp ./janusec-1.0.xx/config.json.primary_bak /usr/local/janusec/config.json`  
 
