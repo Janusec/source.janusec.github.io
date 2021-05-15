@@ -60,14 +60,14 @@ CentOS 8已内置nftables，不需要额外的动作。
 ----
 ##### 步骤 1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.1-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz`  
+> $tar zxf ./janusec-1.2.2-amd64.tar.gz  
 
 ##### 步骤 2: 安装
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.x.x  （根据实际版本号修改）   
+> #cd janusec-1.2.x-amd64  （根据实际版本号和CPU架构类型修改）   
 > #./install.sh   
 
 选择 `1. Primary Node`   

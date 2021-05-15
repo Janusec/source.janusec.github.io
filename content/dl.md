@@ -16,7 +16,7 @@ weight: 100
 
 | Type             | Mirror          |   Download                                                                                   |
 |------------------|-----------------|----------------------------------------------------------------------------------------------|
-| Latest Release   | JANUSEC (USA/美国)   | [janusec-1.2.1-amd64.tar.gz](https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz)    |  
+| Latest Release   | JANUSEC (USA/美国)   | [janusec-1.2.2-amd64.tar.gz](https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz)    |  
 | All Release      | Github (USA/美国)    | [Github Release](https://github.com/Janusec/janusec/releases)                                |  
 | All Release      | Gitee (China/中国)   | [Gitee Release](https://gitee.com/Janusec/janusec/releases)                                  |  
 

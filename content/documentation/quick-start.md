@@ -52,14 +52,14 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 ----
 ##### Step 1: Download
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.1-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz`  
+> $tar zxf ./janusec-1.2.2-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.x.x   
+> #cd janusec-1.2.x-amd64     
 > #./install.sh   
 
 Select `1. Primary Node`, then it will:   
