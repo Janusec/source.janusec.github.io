@@ -59,6 +59,15 @@ If listen=true in config.json, Janusec will use 9080/9443 also, used for interna
 
 > `netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'`  
 
+### DNS  
+
+Domain should point to the IP address of the application gateway.   
+When the application is to be migrated, you can first use the hosts method to point the domain name to the gateway, and then modify the DNS point after the debugging is passed.   
+
+### Certificate   
+
+If the ACME automatic certificate is used, the corresponding domain name is required to be accessible by Internet users (test domain name in the hosts will not work), which is used for the callback verification of the certificate authority.    
+
 ### Nodes Sync
 
 In order to sync correctly, requires:  

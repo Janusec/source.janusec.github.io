@@ -29,8 +29,7 @@ weight: 100
 备注：  
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。   
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用`PostgreSQL 10/11/12+`版本 。  
-如果您的PostgreSQL版本为9.3~9.5且无法升级，可安装之前Janusec v0.9.16 。   
-如果您的PostgreSQL版本低于9.3，则无法安装Janusec 。   
+如果您的PostgreSQL版本低于9.6，则不支持 。   
   
 
 ## 准备主机防火墙nftables  
@@ -60,8 +59,8 @@ CentOS 8已内置nftables，不需要额外的动作。
 ----
 ##### 步骤 1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.2-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.2.3-amd64.tar.gz`  
+> $tar zxf ./janusec-1.2.3-amd64.tar.gz  
 
 ##### 步骤 2: 安装
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
