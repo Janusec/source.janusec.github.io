@@ -134,12 +134,14 @@ appsecret即上述自建应用的Secret，请据实修改。
 
 请在飞书开放平台注册一个自建应用，获取下面的信息。
 
-> "appid": "cli_9ef21d00e",  
+> "appid": "cli_9ef21d00e", (Please use AppKey of the H5 Micro Application)    
 > "appsecret": "ihUBspRAG1PtNdDLUZ"     
 
 ### Lark  
 
-First register a Web application at [Lark Developer](https://open.larksuite.com/), and it should be approved by enterprise administrtor. And, configure under menu "Security Settings"-"Redirect URLs", Add "https://your_domain.com/oauth/lark"   
+First register a Web application at [Lark Developer](https://open.larksuite.com/), and it should be approved by enterprise administrtor.   
+
+And, configure under menu "Security Settings"-"Redirect URLs", Add "https://your_domain.com/oauth/lark"   
 
 Second configure under JANUSEC:  
 

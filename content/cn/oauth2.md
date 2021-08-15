@@ -110,9 +110,9 @@ corpsecret (即上述自建应用的Secret，请据实修改):
 
 > "callback": "`https://your_domain.com`/oauth/dingtalk",  
 
-请在钉钉开放平台注册一个自建应用，获取下面的信息。
+请在钉钉开放平台注册一个自建应用（H5微应用），获取下面的信息。
 
-> "appid": "dingoa8xvc",   
+> "appid": "dingoa8xvc",  （请复制使用H5微应用的AppKey）  
 > "appsecret": "crrALdXUIj4T0zBekYh4u9sU_T1GZT"   
 
 appsecret即上述自建应用的Secret，请据实修改。    
@@ -140,7 +140,9 @@ appsecret即上述自建应用的Secret，请据实修改。
 
 首先在[Lark Developer](https://open.larksuite.com/)配置应用，其他配置跟飞书配置基本一致。  
 
-First register a Web application at [Lark Developer](https://open.larksuite.com/), and it should be approved by enterprise administrtor. And, configure under menu "Security Settings"-"Redirect URLs", Add "https://your_domain.com/oauth/lark"   
+First register a Web application at [Lark Developer](https://open.larksuite.com/), and it should be approved by enterprise administrtor.   
+
+And, configure under menu "Security Settings"-"Redirect URLs", Add "https://your_domain.com/oauth/lark"   
 
 Second configure under JANUSEC:  
 
