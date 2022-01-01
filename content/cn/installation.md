@@ -47,8 +47,8 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 
 ### 步骤1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.6-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz`  
+> $tar zxf ./janusec-1.2.7-amd64.tar.gz  
 
 ### 步骤2: 安装
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 

@@ -1,5 +1,5 @@
 ---
-title: "附录1:RE2正则规则解读"
+title: "附录1: RE2正则规则解读"
 keywords: "RE2正则规则解读, Janusec, Application Gateway, WAF, Web Application Firewall"
 description: "Janusec Application Gateway RE2正则规则解读"
 date: 2020-04-09T14:16:34+08:00

@@ -12,7 +12,7 @@ weight: 660
 
 > 本文仅供旧版本升级参考，新安装请忽略。  
 
-最新版本: v1.2.6 (2021.09.30)  
+最新版本: v1.2.7 (2022.01.01)  
 
 ### 查看当前版本  
 
@@ -24,8 +24,8 @@ weight: 660
 
 不用卸载，直接覆盖安装即可。  
 
-> #`wget https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.6-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.7-amd64.tar.gz`  
 > #`cd /data/janusec-1.2.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
@@ -47,8 +47,8 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 
 然后覆盖安装即可：  
 
-> #`wget https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.6-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.7-amd64.tar.gz`  
 > #`cd /data/janusec-1.2.xx/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
@@ -57,11 +57,11 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 ### 从V0.9.5~V0.9.8 升级    
 
 第一步：  
-V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在`/data/janusec-1.2.6-amd64.tar.gz`，升级步骤参考：  
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在`/data/janusec-1.2.7-amd64.tar.gz`，升级步骤参考：  
 
 > #`cd /data/`  
-> #`wget https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.6-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.2.7-amd64.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
 > #`cp ./janusec-1.2.xx/config.json.primary_bak /usr/local/janusec/config.json`  
 

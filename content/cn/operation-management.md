@@ -76,58 +76,7 @@ weight: 600
 #### PostgreSQL
 PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令.    
 下面简述 PostgreSQL 的安装步骤。   
-
-##### 在Debian 10中部署PostgreSQL 11
-
-> apt install postgresql  
-> su - postgres  
-> psql  
-
-> create user janusec with password &#39;`J@nusec123`&#39;;  
-> create database janusec owner janusec;  
-> grant all privileges on database janusec to janusec;  
-> \q  
-> exit  
-> psql -h 127.0.0.1 -U janusec -W janusec  
-
-
-##### 在 CentOS 7 中部署 PostgreSQL 10
-主要参考 https://wiki.postgresql.org/wiki/YUM_Installation
-首先添加源，方便通过yum安装。
-
-> `yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm`  
-
-如果该链接失效，可通过  `https://yum.postgresql.org/repopackages.php` 获取最新地址。   
-添加成功后，可通过YUM安装。         
-
-> #`yum install postgresql10-server`   
-> #`/usr/pgsql-10/bin/postgresql-10-setup initdb`   
-> #`systemctl restart postgresql-10.service`  
-> #`su - postgres`  
-> -bash-4.2$ `psql`   
-
-
-接下来，在PostgreSQL的指令控制台继续操作：      
-
-> postgres=\# create user `janusec` with password &#39;`J@nusec123`&#39;;  
-> postgres=\# create database janusec owner janusec;   
-> postgres=\# grant all privileges on database janusec to janusec;  
-> postgres=\# \q   
-> exit  
-
-修改PostgreSQL认证方式     
-
-> #`vi /var/lib/pgsql/10/data/pg_hba.conf`  
-
-修改 pg_hba.conf 中这一行:     
-
-> `host    all    all    127.0.0.1/32   md5`     
-
-将PostgreSQL设置为开机启动，并重启 PostgreSQL 服务   
-
-> systemctl enable postgresql-10   
-> systemctl restart postgresql-10     
-
+详见 [附录2 PostgreSQL常见操作](/cn/appendix-psql/) 。  
 
 #### 为Web管理启用 HTTPS  
 如果已配置证书，可使用任一Web应用的域名，以及`/janusec-admin/`进行访问：  

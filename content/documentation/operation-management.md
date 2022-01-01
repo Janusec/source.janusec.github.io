@@ -76,9 +76,12 @@ or
 > #`systemctl status janusec`  
 
 #### PostgreSQL
+
 PostgreSQL is not included in the release package, you should prepare it before installation, required by the Primary Node.   
 
 Before the installation of the Primary Node, dbname, dbuser and password should be ready.  
+
+Refer to [Appendix 2: PostgreSQL Operations](/documentation/appendix-psql/) .  
 
 ##### Example with Debian 10 and PostgreSQL 11
 
@@ -131,6 +134,7 @@ Set PostgreSQL stard when boot, and restart PostgreSQL Service
 
 
 #### Enable HTTPS for Administration 
+
 At least one certificate and one application configured, you can use the application domain and administration port to access it.  
 
 For Single Node:  
