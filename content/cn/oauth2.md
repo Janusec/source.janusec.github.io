@@ -31,11 +31,11 @@ Janusec Application Gateway支持如下身份认证：
 
 Janusec认证通过后，会在HTTP请求的头部添加两行：  
 
-> X-Auth-Token: `Access-Token`  （备注： 0.9.15使用`X-Auth-Token`替换之前的`Authorization`）     
+> X-Auth-Token: `Access-Token`        
 > X-Auth-User: `UserID`  
 
 
-应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。  
+应用不需要修改即可使用身份认证功能，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。  
 
 ### LDAP配置  
 
@@ -112,7 +112,7 @@ corpsecret (即上述自建应用的Secret，请据实修改):
 
 请在钉钉开放平台注册一个自建应用（H5微应用），获取下面的信息。
 
-> "appid": "dingoa8xvc",  （请复制使用H5微应用的AppKey）  
+> "appid": "dingoa8xvc",  （请复制使用H5微应用的`AppKey`，`这里容易出错!!!`）  
 > "appsecret": "crrALdXUIj4T0zBekYh4u9sU_T1GZT"   
 
 appsecret即上述自建应用的Secret，请据实修改。    

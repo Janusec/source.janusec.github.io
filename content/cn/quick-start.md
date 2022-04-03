@@ -23,8 +23,8 @@ weight: 100
 
 | 节点      | 操作系统   | 数据库 |
 |----------|--------------------------------------------------------------------------------|-----------------------|
-| 主节点    | Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12+  |   
-| 副本节点  | Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
+| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12+  |   
+| 副本节点  | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
 
 备注：  
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。   
@@ -59,8 +59,8 @@ CentOS 8已内置nftables，不需要额外的动作。
 ----
 ##### 步骤 1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.8-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
+> $tar zxf ./janusec-1.2.9-amd64.tar.gz  
 
 ##### 步骤 2: 安装
 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 

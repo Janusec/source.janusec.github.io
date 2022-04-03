@@ -17,7 +17,7 @@ weight: 1200
 
 Operating System should be x86_64 and one of the following:  
 
-* Debian 9/10+ (Debian 10+ is preferred)  
+* Debian 9/10/11+ (Debian 10+ is preferred)  
 * CentOS 7/8+  
 * RHEL 7/8+  
 
@@ -67,6 +67,7 @@ When the application is to be migrated, you can first use the hosts method to po
 ### Certificate   
 
 If the ACME automatic certificate is used, the corresponding domain name is required to be accessible by Internet users (test domain name in the hosts will not work), which is used for the callback verification of the certificate authority.    
+And, single node is required, replica nodes will not support ACME automatic certificates.     
 
 ### Nodes Sync
 

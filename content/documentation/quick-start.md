@@ -21,8 +21,8 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 
 | Role          | Operating System   | Database |
 |---------------|--------------------------------------------------|----------|
-| Primary Node  | Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | PostgreSQL 10/11/12+   |   
-| Replica Node  | Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | Not required |  
+| Primary Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | PostgreSQL 10/11/12+   |   
+| Replica Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | Not required |  
 
 
 ## Prepare nftables  
@@ -52,8 +52,8 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 ----
 ##### Step 1: Download
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.8-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
+> $tar zxf ./janusec-1.2.9-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 

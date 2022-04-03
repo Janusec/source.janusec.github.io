@@ -31,10 +31,10 @@ Enable authentication in Web admin UI.
 
 Janusec will add the following headers if authentication passed.     
 
-> X-Auth-Token: `Access-Token`  (Note: 0.9.15 uses `X-Auth-Token` instead previous `Authorization`)     
+> X-Auth-Token: `Access-Token`    
 > X-Auth-User: `UserID`  
 
-The application can be used without modification.   
+The application can use the identity authentication function without modification, and can also obtain user identity (WeWork/Dingtalk/Feishu/Lark) through X-Auth-User, or obtain further information with Access-Token (WeWork/Feishu/Lark).    
 
 ### LDAP  
 
@@ -111,9 +111,9 @@ corpsecret (即上述自建应用的Secret，请据实修改):
 
 > "callback": "`https://your_domain.com`/oauth/dingtalk",  
 
-请在钉钉开放平台注册一个自建应用，获取下面的信息。
+请在钉钉开放平台注册一个自建应用（H5微应用），获取下面的信息。
 
-> "appid": "dingoa8xvc",   
+> "appid": "dingoa8xvc",  （请复制使用H5微应用的`AppKey`，`这里容易出错!!!`）  
 > "appsecret": "crrALdXUIj4T0zBekYh4u9sU_T1GZT"   
 
 appsecret即上述自建应用的Secret，请据实修改。    
