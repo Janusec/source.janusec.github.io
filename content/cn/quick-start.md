@@ -1,7 +1,7 @@
 ---
 title: "快速入门"
-keywords: "Janusec应用网关,网关WAF, WAF, Web应用防火墙"
-description: "快速建立一个单节点的Janusec应用网关。"
+keywords: "JANUSEC应用网关,网关WAF, WAF, Web应用防火墙"
+description: "快速建立一个单节点的JANUSEC应用网关。"
 date: 2018-05-17T22:28:32+08:00
 draft: false
 weight: 100
@@ -59,22 +59,23 @@ CentOS 8已内置nftables，不需要额外的动作。
 ----
 ##### 步骤 1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.9-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.3.0-amd64.tar.gz  
 
 ##### 步骤 2: 安装
-请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
+请切换到root用户并运行 install.sh , JANUSEC应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.2.x-amd64  （根据实际版本号和CPU架构类型修改）   
+> #cd janusec-1.3.x-amd64  （根据实际版本号和CPU架构类型修改）   
 > #./install.sh   
 
 选择 `1. Primary Node`   
 
 然后安装程序会自动将所需文件复制到安装目录 `/usr/local/janusec/`，将服务配置文件复制到系统服务目录，以及将服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次。   
 
-##### 步骤 3: 配置 
-PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、用户名 、口令，可参考[运维管理](/cn/operation-management/)中的PostgreSQL安装。   
+##### 步骤 3: 配置  
+
+PostgreSQL没有包含在发布包中，需要自行准备好PostgreSQL数据库、用户名 、口令，PostgreSQL 的安装步骤可参考 [附录2 PostgreSQL常见操作](/cn/appendix-psql/) 。    
 现在我们假设您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好。  
 然后编辑 `/usr/local/janusec/config.json` ，快速入门只修改数据库配置即可。  
 (由于JSON格式支持的注释格式看起来不方便，下面采用`//`作为注释说明，实际使用时需要删除注释):  
@@ -117,7 +118,7 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 
 > http://`您的网关IP地址:9080`/janusec-admin/    
 
-这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。  
+这是JANUSEC应用网关的第一个管理地址（后面可启用安全的管理地址）。  
 默认用户名：`admin`   
 默认口令：`J@nusec123`   
 

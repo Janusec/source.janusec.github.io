@@ -1,7 +1,7 @@
 ---
 title: "管理"
 keywords: "管理, Janusec, 应用网关, WAF, Web应用防火墙"
-description: "管理Janusec应用网关"
+description: "管理JANUSEC应用网关"
 date: 2018-05-19T10:11:09+08:00
 draft: false
 weight: 400

@@ -1,7 +1,7 @@
 ---
 title: "运维管理"
 keywords: "Janusec, Application Gateway, WAF, Web Application Firewall, Web应用防火墙"
-description: "Janusec应用网关运维管理"
+description: "JANUSEC应用网关运维管理"
 date: 2018-05-25T21:04:25+08:00
 draft: false
 weight: 600

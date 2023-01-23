@@ -1,7 +1,7 @@
 ---
 title: "安装"
-keywords: "安装, Janusec应用网关"
-description: "安装Janusec应用网关"
+keywords: "安装, JANUSEC应用网关"
+description: "安装JANUSEC应用网关"
 date: 2018-05-19T10:11:09+08:00
 draft: false
 weight: 300
@@ -47,21 +47,21 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 
 ### 步骤1: 下载
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.9-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.3.0-amd64.tar.gz  
 
 ### 步骤2: 安装
-请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： `/usr/local/janusec/ ` 
+请切换到root用户并运行 install.sh , JANUSEC应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.2.x-amd64   
+> #cd janusec-1.3.x-amd64   
 > #./install.sh   
 
 选择 `1. Primary Node`, 然后安装程序会:   
 
 * 将所需文件复制到 `/usr/local/janusec/`   
 * 将服务配置文件复制到系统服务目录   
-* 将Janusec应用网关服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次.   
+* 将JANUSEC应用网关服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次.   
 
 ### 步骤3: 配置 
 PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、数据库、账号，可参考[运维管理](/cn/operation-management/)中的PostgreSQL安装。   
@@ -100,12 +100,12 @@ PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、
 
 在config.json中，如果 "primary_node" - "admin" - "listen" 为false，则管理入口为： 
 
-> http://`您的网关IP地址`/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址   
+> http://`您的网关IP地址`/janusec-admin/ ， 这是JANUSEC应用网关的第一个管理地址   
 > https://`您的任意应用域名`/janusec-admin/ (在配置证书和应用之后可以使用)
 
 如果 "primary_node" - "admin" - "listen" 为true，则默认管理入口为： 
 
-> http://`您的网关IP地址:9080`/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址   
+> http://`您的网关IP地址:9080`/janusec-admin/ ， 这是JANUSEC应用网关的第一个管理地址   
 > https://`您的任意应用域名:9443`/janusec-admin/ (在配置证书和应用之后可以使用)
 
 默认用户名：`admin`   

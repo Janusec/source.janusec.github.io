@@ -1,7 +1,7 @@
 ---
 title: "OAuth2身份认证"
 keywords: "Janusec, Application Gateway, WAF, Web Application Firewall, Web应用防火墙, OAuth2"
-description: "Janusec应用网关身份认证管理"
+description: "JANUSEC应用网关身份认证管理"
 date: 2020-03-28T23:04:25+08:00
 draft: false
 weight: 650

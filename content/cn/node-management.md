@@ -1,7 +1,7 @@
 ---
 title: "节点管理"
-keywords: "Janusec应用网关, 主节点, 副本节点"
-description: "Janusec应用网关的节点管理"
+keywords: "JANUSEC应用网关, 主节点, 副本节点"
+description: "JANUSEC应用网关的节点管理"
 date: 2018-05-20T22:38:35+08:00
 draft: false
 weight: 520
@@ -9,7 +9,7 @@ weight: 520
 
 # 节点管理  
 ----
-![应用网关](/images/gateway2.png "Janusec应用网关节点")   
+![应用网关](/images/gateway2.png "JANUSEC应用网关节点")   
 
 #### 节点类型
 * 主节点, 有且只有一个，并需要使用PostgreSQL.  
@@ -30,7 +30,7 @@ weight: 520
 #### 副本节点   
 > 在统一的Web管理界面,可管理所有的副本节点.   
 
-![副本节点](/images/node1.png "Janusec应用网关的副本节点")  
+![副本节点](/images/node1.png "JANUSEC应用网关的副本节点")  
 
 副本节点配置文件`/usr/local/janusec/config.json`中的`node_key`，需要据此配置，类似：    
 ```

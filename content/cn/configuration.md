@@ -1,7 +1,7 @@
 ---
 title: "配置文件"
 keywords: "配置文件, Janusec, 应用网关, WAF, Web应用防火墙"
-description: "Janusec应用网关配置文件说明"
+description: "JANUSEC应用网关配置文件说明"
 date: 2020-03-22T10:11:09+08:00
 draft: false
 weight: 350

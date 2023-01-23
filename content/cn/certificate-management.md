@@ -1,7 +1,7 @@
 ---
 title: "证书管理"
-keywords: "证书管理, Janusec应用网关"
-description: "Janusec应用网关的证书管理"
+keywords: "证书管理, JANUSEC应用网关"
+description: "JANUSEC应用网关的证书管理"
 date: 2018-05-20T21:05:08+08:00
 draft: false
 weight: 500
@@ -16,7 +16,7 @@ weight: 500
 
 #### 证书列表  
 在Web管理界面，导航到 `Certificate Management` （证书管理） .  
-![证书列表](/images/certificate1.png "Janusec应用网关的证书管理")
+![证书列表](/images/certificate1.png "JANUSEC应用网关的证书管理")
 
 #### 添加或编辑证书   
 这里可使用单域名证书（`subdomain.yourdomain.com`）或通配符证书（`*.yourdomain.com`）。   

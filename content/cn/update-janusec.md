@@ -1,18 +1,18 @@
 ---
 title: "升级Janusec"
 keywords: "Janusec, Application Gateway, WAF, Web Application Firewall"
-description: "升级到新版本Janusec应用网关"
+description: "升级到新版本JANUSEC应用网关"
 date: 2018-06-10T20:11:45+08:00
 draft: false
 weight: 660
 ---
 
-# 升级到新版本Janusec应用网关   
+# 升级到新版本JANUSEC应用网关   
 ----
 
 > 本文仅供旧版本升级参考，新安装请忽略。  
 
-最新版本: v1.2.9 (2022.04.03)  
+最新版本: v1.3.0 (2023.01.23)  
 
 ### 查看当前版本  
 
@@ -24,9 +24,9 @@ weight: 660
 
 不用卸载，直接覆盖安装即可。  
 
-> #`wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.9-amd64.tar.gz`  
-> #`cd /data/janusec-1.2.xx/`  
+> #`wget https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.3.0-amd64.tar.gz`  
+> #`cd /data/janusec-1.3.x/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -47,9 +47,9 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 
 然后覆盖安装即可：  
 
-> #`wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.9-amd64.tar.gz`  
-> #`cd /data/janusec-1.2.xx/`  
+> #`wget https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.3.0-amd64.tar.gz`  
+> #`cd /data/janusec-1.3.x/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -57,13 +57,13 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 ### 从V0.9.5~V0.9.8 升级    
 
 第一步：  
-V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在`/data/janusec-1.2.9-amd64.tar.gz`，升级步骤参考：  
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在`/data/janusec-1.3.0-amd64.tar.gz`，升级步骤参考：  
 
 > #`cd /data/`  
-> #`wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.2.9-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.3.0-amd64.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
-> #`cp ./janusec-1.2.xx/config.json.primary_bak /usr/local/janusec/config.json`  
+> #`cp ./janusec-1.3.x/config.json.primary_bak /usr/local/janusec/config.json`  
 
 需要编辑新的`/usr/local/janusec/config.json`，参考[配置文件](/cn/configuration/)，重新设置数据库账号口令等信息。  
 
@@ -75,7 +75,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 第三步：  
 正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：  
 
-> #`cd /data/janusec-1.2.xx/`  
+> #`cd /data/janusec-1.3.x/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 

@@ -1,7 +1,7 @@
 ---
 title: "产品介绍"
-keywords: "Janusec Application Gateway, Janusec应用网关, Janusec网关WAF"
-description: "Janusec应用网关产品介绍"
+keywords: "Janusec Application Gateway, JANUSEC应用网关, Janusec网关WAF"
+description: "JANUSEC应用网关产品介绍"
 date: 2018-05-12T08:10:40+08:00
 draft: false
 weight: 200
@@ -9,8 +9,8 @@ weight: 200
 
 # 产品介绍
 ----
-![应用网关](/images/gateway1.png "Janusec应用网关")  
-Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供WAF（Web应用防火墙）、CC防护、身份认证、安全运维、Web路由、负载均衡、自动化证书等功能，可用于构建安全的、可扩展的应用。  
+![应用网关](/images/gateway1.png "JANUSEC应用网关")  
+JANUSEC应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供WAF（Web应用防火墙）、CC防护、身份认证、安全运维、Web路由、负载均衡、自动化证书等功能，可用于构建安全的、可扩展的应用。  
 
 [Janusec Application Gateway Introduction PDF](/download/Janusec-Application-Gateway.pdf)
 

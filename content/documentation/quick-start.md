@@ -52,14 +52,14 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 ----
 ##### Step 1: Download
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz`  
-> $tar zxf ./janusec-1.2.9-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.3.0-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.2.x-amd64     
+> #cd janusec-1.3.x-amd64     
 > #./install.sh   
 
 Select `1. Primary Node`, then it will:   
@@ -69,7 +69,7 @@ Select `1. Primary Node`, then it will:
 * Enable Janusec Application Gateway as a system service, but not start it for the first time.   
 
 ##### Step 3: Config 
-PostgreSQL is not included in release package, you should prepare database name and account.   
+PostgreSQL is not included in release package, you should prepare database name and account，refer to [Appendix 2: PostgreSQL Operations](/documentation/appendix-psql/) .       
 Now we assume you have `PostgreSQL` installed already, and database name and account is ready, then edit `/usr/local/janusec/config.json` (use `//` as comment, please delete them before using it):
 
 ```
