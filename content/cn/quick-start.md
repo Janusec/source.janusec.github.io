@@ -12,7 +12,7 @@ weight: 100
 
 [Switch to English Edition of Quick Start](/documentation/quick-start/)   
 
-如果您只是想快速体验一下，可试试[JANUSEC应用网关的Docker镜像](https://www.janusec.com/articles/opensource/1615470598.html) ，并跳过下面的安装部分。    
+如果您只是想快速体验一下，可参考[附录：在容器中部署JANUSEC应用网关](/cn/appendix-docker/) ，并跳过下面的安装部分。    
 
 本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。      
 
