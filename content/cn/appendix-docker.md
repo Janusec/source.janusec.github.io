@@ -27,12 +27,12 @@ JANUSEC应用网关**首选直接部署在Linux服务器上**，监听80/443端�
 
 ## 第一步：下载镜像  
 
-> docker pull registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0   
+> docker pull registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.1   
 
 
 ## 第二步：运行  
 
-> docker run -d --privileged=true --restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0 /sbin/init   
+> docker run -d --privileged=true --restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.1 /sbin/init   
 
 ## 第三步：使用浏览器访问登录并修改口令  
 
@@ -72,5 +72,5 @@ http://IP_Address:9080/janusec-admin/
 
 可将容器提交为新镜像（该步骤可选）：  
 
-> docker commit -m "1.3.0" XXXXXX janusec/janusec:1.3.0   
+> docker commit -m "1.3.1" XXXXXX janusec/janusec:1.3.1   
 

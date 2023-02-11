@@ -28,12 +28,12 @@ If the return result is disabled, please enable it：
 
 ## Step 1：Download image 
 
-> docker pull janusec/janusec:1.3.0   
+> docker pull janusec/janusec:1.3.1   
 
 
 ## Step 2：Run    
 
-> docker run -d --privileged=true --restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 janusec/janusec:1.3.0 /sbin/init   
+> docker run -d --privileged=true --restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 janusec/janusec:1.3.1 /sbin/init   
 
 ## Step 3：Access the Management Entrance of the Gateway  
 
@@ -74,5 +74,5 @@ If OK then exit the container.
 
 You can commit the container as a new image (optional)：  
 
-> docker commit -m "1.3.0" XXXXXX janusec/janusec:1.3.0   
+> docker commit -m "1.3.1" XXXXXX janusec/janusec:1.3.1   
 

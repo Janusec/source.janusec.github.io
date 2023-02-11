@@ -164,10 +164,6 @@ Get the application information under Lark Developer:
 
 后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。  
 
-### 原理介绍与演示  
-
-原理介绍与演示效果，参见： [使用JANUSEC应用网关给内部网站添加身份认证](https://www.janusec.com/articles/opensource/1585458493.html)  
-
 
 ### 多节点注意事项  
 
