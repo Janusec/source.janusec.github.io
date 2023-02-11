@@ -20,7 +20,7 @@ weight: 660
 
 > `./janusec --version`  
 
-### 从v0.9.10+升级 
+### 从v0.9.10+或1.x.x升级 
 
 不用卸载，直接覆盖安装即可。  
 
@@ -30,7 +30,7 @@ weight: 660
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
-### 从V0.9.9或1.x.x升级   
+### 从V0.9.9升级   
 
 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。  
 
