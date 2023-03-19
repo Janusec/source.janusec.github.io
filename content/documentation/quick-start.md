@@ -50,10 +50,13 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
   
 ## Installation
 ----
-##### Step 1: Download
+##### Step 1: Download  
+
+The latest version is available at https://github.com/Janusec/Application-Gateway/releases .  
+
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.3.1-amd64.tar.gz`  
-> $tar zxf ./janusec-1.3.1-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz`  
+> $tar zxf ./janusec-1.3.2-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
