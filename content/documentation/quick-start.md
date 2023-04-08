@@ -20,8 +20,8 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 ----
 
 | Role          | Operating System   | Database |
-|---------------|--------------------------------------------------|----------|
-| Primary Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | PostgreSQL 10/11/12+   |   
+|---------------|-------------------------------------------------------------------------------------------------|-----------------------------------|
+| Primary Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | SQLite3 or PostgreSQL 10/11/12+   |   
 | Replica Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | Not required |  
 
 
@@ -55,14 +55,14 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 The latest version is available at https://github.com/Janusec/Application-Gateway/releases .  
 
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz`  
-> $tar zxf ./janusec-1.3.2-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.4.0-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.3.x-amd64     
+> #cd janusec-1.4.x-amd64     
 > #./install.sh   
 
 Select `1. Primary Node`, then it will:   
@@ -71,9 +71,14 @@ Select `1. Primary Node`, then it will:
 * copy service file to system service directory   
 * Enable Janusec Application Gateway as a system service, but not start it for the first time.   
 
-##### Step 3: Config 
-PostgreSQL is not included in release package, you should prepare database name and account，refer to [Appendix 2: PostgreSQL Operations](/documentation/appendix-psql/) .       
-Now we assume you have `PostgreSQL` installed already, and database name and account is ready, then edit `/usr/local/janusec/config.json` (use `//` as comment, please delete them before using it):
+##### Step 3: Config  
+
+Starting from v1.4.0, it supports two types of databases, SQLite and PostgreSQL, which can be selected according to the situation.   
+
+If you choose SQLite, you can ignore the fields under "database" in the configuration file below.
+If you choose PostgreSQL, as it is not included in the release package, you need to prepare the PostgreSQL database, username, and password yourself. The installation steps for PostgreSQL can refer to [Appendix 2: PostgreSQL Operations](/documentation/appendix-psql/) . If you have already installed PostgreSQL, created the database, and prepared the username and password, you can continue with the following actions.   
+
+Edit `/usr/local/janusec/config.json` (use `//` as comment, please delete them before using it):
 
 ```
 {
@@ -85,6 +90,7 @@ Now we assume you have `PostgreSQL` installed already, and database name and acc
             "listen_https": ":9443",  // Format :port or Interal_IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
             "portal": "https://your_gate_domain.com:9443/janusec-admin/"   // Please skip this item when OAuth not used. It is for admin portal OAuth callback, if listen is false in config.json, remove colon and port number
         },
+        "database_type": "sqlite",    // sqlite or postgres
         "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP Address
             "port": "5432",           // PostgreSQL Port, 5432

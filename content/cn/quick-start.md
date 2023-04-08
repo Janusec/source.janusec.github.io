@@ -22,14 +22,16 @@ weight: 100
 ----
 
 | 节点      | 操作系统   | 数据库 |
-|----------|--------------------------------------------------------------------------------|-----------------------|
-| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12+  |   
+|----------|-----------------------------------------------------------------------------------|----------------------------------|
+| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | SQLite3 或 PostgreSQL 10/11/12+  |   
 | 副本节点  | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
 
 备注：  
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。   
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用`PostgreSQL 10/11/12+`版本 。  
-如果您的PostgreSQL版本低于9.6，则不支持 。   
+如果您的PostgreSQL版本低于9.6，则不支持 。  
+
+从v1.4.0版本开始，支持SQLite3数据库。     
   
 
 ## 准备主机防火墙nftables  
@@ -62,24 +64,29 @@ CentOS 8已内置nftables，不需要额外的动作。
 可以从 https://github.com/Janusec/Application-Gateway/releases 下载最新版本。  
 
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz`  
-> $tar zxf ./janusec-1.3.2-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
+> $tar zxf ./janusec-1.4.0-amd64.tar.gz  
 
-##### 步骤 2: 安装
+##### 步骤 2: 安装  
+
 请切换到root用户并运行 install.sh , JANUSEC应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
-> #cd janusec-1.3.x-amd64  （根据实际版本号和CPU架构类型修改）   
+> #cd janusec-1.4.x-amd64  （根据实际版本号和CPU架构类型修改）   
 > #./install.sh   
 
 选择 `1. Primary Node`   
 
 然后安装程序会自动将所需文件复制到安装目录 `/usr/local/janusec/`，将服务配置文件复制到系统服务目录，以及将服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次。   
 
-##### 步骤 3: 配置  
+##### 步骤 3: 配置   
 
-PostgreSQL没有包含在发布包中，需要自行准备好PostgreSQL数据库、用户名 、口令，PostgreSQL 的安装步骤可参考 [附录2 PostgreSQL常见操作](/cn/appendix-psql/) 。    
-现在我们假设您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好。  
+从v1.4.0开始，支持两种数据库，SQLite和PostgreSQL，可根据情况选用。   
+
+如果选用SQLite，可忽略下面配置文件中"database"下面的各字段。  
+
+如果选用PostgreSQL，由于PostgreSQL没有包含在发布包中，需要自行准备好PostgreSQL数据库、用户名 、口令，PostgreSQL 的安装步骤可参考 [附录2 PostgreSQL常见操作](/cn/appendix-psql/) 。如果您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好，可继续下面的动作。  
+
 然后编辑 `/usr/local/janusec/config.json` ，快速入门只修改数据库配置即可。  
 (由于JSON格式支持的注释格式看起来不方便，下面采用`//`作为注释说明，实际使用时需要删除注释):  
 
@@ -93,6 +100,7 @@ PostgreSQL没有包含在发布包中，需要自行准备好PostgreSQL数据库
             "listen_https": ":9443",  // 格式为 :port 或 内网IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问
             "portal": "https://your_gate_domain.com:9443/janusec-admin/"   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
         },
+        "database_type": "sqlite",    // sqlite or postgres
         "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP地址
             "port": "5432",           // PostgreSQL 监听端口，默认5432

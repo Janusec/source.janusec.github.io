@@ -12,7 +12,7 @@ weight: 660
 
 > This article is only for upgrade, not for new installation.  
 
-Latest version: v1.3.2 (Mar 19, 2023)   
+Latest version: v1.4.0 (Apr 08, 2023)   
 
 
 #### View current version  
@@ -25,9 +25,9 @@ The version information is available at admin portal, or:
 
 You do not need to uninstall the old version, and update JANUSEC like this:     
 
-> #`wget https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.3.2-amd64.tar.gz`  
-> #`cd janusec-1.3.x-amd64`   
+> #`wget https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.4.0-amd64.tar.gz`  
+> #`cd janusec-1.4.x-amd64`   
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -48,9 +48,9 @@ nftables has been installed for CentOS 8, and as backend of firewalld, just enab
 
 Then, update JANUSEC like this:  
 
-> #`wget https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.3.2-amd64.tar.gz`  
-> #`cd /data/janusec-1.3.x/`  
+> #`wget https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.4.0-amd64.tar.gz`  
+> #`cd /data/janusec-1.4.x/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
@@ -61,10 +61,10 @@ Step 1:
 config.json changed in V0.9.9, so backup and new config.json is required:   
 
 > #`cd /data/`  
-> #`wget https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz`  
-> #`tar zxf ./janusec-1.3.2-amd64.tar.gz`  
+> #`wget https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
+> #`tar zxf ./janusec-1.4.0-amd64.tar.gz`  
 > #`mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old`  
-> #`cp ./janusec-1.3.x/config.json.primary_bak /usr/local/janusec/config.json`  
+> #`cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json`  
 
 Edit `/usr/local/janusec/config.json`, refer to [Configuration File](/documentation/configuration/), set database information.    
 
@@ -78,7 +78,7 @@ Step 3:
 
 Install the latest version（config.json will not be overwrote if it exists.）：  
 
-> #`cd /data/janusec-1.3.x/`  
+> #`cd /data/janusec-1.4.x/`  
 > #`./install.sh`  
 > #`systemctl restart janusec`  
 
