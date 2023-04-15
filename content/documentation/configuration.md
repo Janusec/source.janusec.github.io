@@ -30,7 +30,7 @@ The following is based on Janusec Application Gateway V1.0.0+, and use `//` as c
             "listen_https": ":9443",  // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
             "portal": "https://gate.janusec.com:9443/janusec-admin/",   // admin portal, used for OAuth callback, if listen is false, remove colon and port number
         },
-		"database_type": "sqlite",    // sqlite or postgres
+        "database_type": "sqlite",    // sqlite or postgres
         "database": {                 // PostgreSQL 10/11/12+
             "host": "127.0.0.1",      // PostgreSQL IP Address
             "port": "5432",           // PostgreSQL Port, 5432

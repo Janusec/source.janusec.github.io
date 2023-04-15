@@ -31,7 +31,7 @@ weight: 350
             "listen_https": ":9443",  // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问
             "portal": "https://gate.janusec.com:9443/janusec-admin/",   // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号
         },
-		"database_type": "sqlite",    // sqlite or postgres
+        "database_type": "sqlite",    // sqlite or postgres
         "database": {                 // PostgreSQL 10/11/12+  
             "host": "127.0.0.1",      // PostgreSQL IP地址
             "port": "5432",           // PostgreSQL 监听端口，默认5432
