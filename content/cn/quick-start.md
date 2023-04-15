@@ -18,7 +18,7 @@ weight: 100
 
 
 
-## 安装需求  
+## 0 安装需求  
 ----
 
 | 节点      | 操作系统   | 数据库 |
@@ -31,16 +31,46 @@ weight: 100
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用`PostgreSQL 10/11/12+`版本 。  
 如果您的PostgreSQL版本低于9.6，则不支持 。  
 
-从v1.4.0版本开始，支持SQLite3数据库。     
+从v1.4.0版本开始，增加支持SQLite3数据库。     
   
 
-## 准备主机防火墙nftables  
+## 1 准备主机防火墙nftables  
 ----
-nftables用于拦截CC攻击，减轻应用网关压力。  
+
+nftables用于拦截CC攻击，减轻应用网关压力。参考下面的指令配置完成nftables之后，可以通过如下指令查看规则：  
+
+> #nft list ruleset  
+
+如果规则不是空的，可能会影响防火墙策略的生效。  
+
+##### 1.1 Debian 11  
+
+Debian 11已默认安装并启用nftables并通过ufw服务进行管理，可通过如下命令查看状态   
+
+> #`ufw status numbered`  
+
+如果80或443端口未允许或无法访问，您可能需要执行：  
+
+当配置文件`/usr/local/janusec/config.json`中 primary_node - admin - `listen` 为`false`时：  
+
+> #`ufw allow 80,443/tcp`  
+
+当配置文件`/usr/local/janusec/config.json`中 primary_node - admin - `listen` 为`true`时：     
+
+> #`ufw allow 80,443,9080,9443/tcp`    
+
+
+##### 1.2 Debian 10   
 
 Debian 10安装nftables：  
 
-> apt install nftables  
+> apt install nftables   
+
+##### 1.3 CentOS 8  
+
+CentOS 8已内置nftables，不需要额外的动作。   
+
+##### 1.4 CentOS 7  
 
 CentOS 7默认没有安装nftables，需要手工安装并启动：  
 
@@ -48,16 +78,8 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
 > #systemctl enable nftables  
 > #systemctl start nftables  
 
-CentOS 8已内置nftables，不需要额外的动作。   
 
-现在，可以通过如下指令查看规则：  
-
-> #nft list ruleset  
-
-如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。  
-
-
-## 安装
+## 2 安装
 ----
 ##### 步骤 1: 下载  
 
@@ -134,25 +156,26 @@ CentOS 8已内置nftables，不需要额外的动作。
 默认口令：`J@nusec123`   
 
 
-## 配置数字证书 (可选)
+## 3 配置数字证书 (可选)
 ----
 如果仅使用HTTP，不使用HTTPS，可跳过此步骤；但强烈建议配置证书并启用HTTPS。
 
 使用浏览器打开 http://`您的网关IP地址`/janusec-admin/ 并[添加一张数字证书](/cn/certificate-management/)。
 如果您还没有数字证书，可以从`Let's Encrypt`申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途），或者跳过证书配置，在应用管理中配置使用`ACME自动证书`。  
 
-## 配置Web应用 (必选)
+## 4 配置Web应用 (必选)
 ----
 使用浏览器打开  http://`您的网关IP地址`/janusec-admin/ 并[添加一个应用](/cn/application-management/).  
 填写应用名称、实际服务器的 `IP:端口` 等信息。
 
-## 修改DNS或Hosts (必选)
+## 5 修改DNS或Hosts (必选)
 ----
-生产环境，需要将修改DNS将您的域名指向网关地址。  
-测试环境，可直接修改您本地电脑的hosts文件： 
- `C:\Windows\System32\drivers\etc\hosts`.    
 
-## 验证
+生产环境，需要修改DNS将您的域名指向网关地址。  
+测试环境，可直接修改您本地电脑的hosts文件：  `C:\Windows\System32\drivers\etc\hosts` 。   
+如需使用ACME自动化证书，域名必须为互联网可访问的真实域名，否则证书颁发机构回调验证时不通过。  
+
+## 6 验证
 ----
 配置完成后，验证网关是否正常工作。  
 打开浏览器，访问：
@@ -161,7 +184,7 @@ http://`your_domain_name`/
 https://`your_domain_name`/ .  
 如果可以正常访问，表明网关已正常工作。  
 
-## WAF验证
+## 7 WAF验证
 ----
 检验WAF（Web应用防火墙）是否工作正常。
 可使用如下测试用例:  
@@ -172,7 +195,7 @@ https://`your_domain_name`/ .
 阻断效果:   
 ![WAF](/images/waf2.png "WAF of Janusec Application Gateway")  
 
-## 防火墙验证  
+## 8 防火墙验证  
 ----
 
 可通过：  
