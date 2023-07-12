@@ -83,11 +83,11 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
 ----
 ##### 步骤 1: 下载  
 
-可以从 https://github.com/Janusec/Application-Gateway/releases 下载最新版本。  
+可以从 https://github.com/Janusec/janusec/releases 下载最新版本。  
 
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
-> $tar zxf ./janusec-1.4.0-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz`  
+> $tar zxf ./janusec-1.4.1-amd64.tar.gz  
 
 ##### 步骤 2: 安装  
 

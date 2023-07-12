@@ -117,6 +117,9 @@ corpsecret (即上述自建应用的Secret，请据实修改):
 
 appsecret即上述自建应用的Secret，请据实修改。    
 
+然后在"登录与分享"菜单下面添加上述callback回调地址。  
+
+
 ### 飞书配置  
 
 需要在飞书开放平台注册Web应用(比如名称JANUSEC)并经企业管理员审核通过。  

@@ -12,7 +12,7 @@ weight: 1600
 
 The JANUSEC application gateway is **preferred to be deployed directly on the Linux server** and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see [Quick Start](/cn/quick-start/).  
 
-If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content.   
+If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content, for experiential purposes only, not recommended for production environments.   
 
 
 ## Prerequisite  

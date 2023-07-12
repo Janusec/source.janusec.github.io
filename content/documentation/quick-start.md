@@ -78,11 +78,11 @@ nftables is not installed for CentOS 7 by default, installation is required:
 ----
 ##### Step 1: Download  
 
-The latest version is available at https://github.com/Janusec/Application-Gateway/releases .  
+The latest version is available at https://github.com/Janusec/janusec/releases .  
 
 > $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz`  
-> $tar zxf ./janusec-1.4.0-amd64.tar.gz  
+> $wget `https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz`  
+> $tar zxf ./janusec-1.4.1-amd64.tar.gz  
 
 ##### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
