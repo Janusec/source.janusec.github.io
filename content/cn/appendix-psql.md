@@ -21,9 +21,9 @@ PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前�
 > su - postgres  
 > psql  
 
-> create user janusec with password &#39;`J@nusec123`&#39;;  
-> create database janusec owner janusec;  
-> grant all privileges on database janusec to janusec;  
+> CREATE USER janusec WITH PASSWORD &#39;`J@nusec123`&#39;;  
+> CREATE DATABASE janusec OWNER janusec WITH ENCODING 'UTF8';  
+> GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;  
 > \q  
 > exit  
 > psql -h 127.0.0.1 -U janusec -W janusec  
@@ -47,9 +47,9 @@ PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前�
 
 接下来，在PostgreSQL的指令控制台继续操作：      
 
-> postgres=\# create user `janusec` with password &#39;`J@nusec123`&#39;;  
-> postgres=\# create database janusec owner janusec;   
-> postgres=\# grant all privileges on database janusec to janusec;  
+> postgres=\# CREATE USER `janusec` WITH PASSWORD &#39;`J@nusec123`&#39;;  
+> postgres=\# CREATE DATABASE janusec OWNER janusec WITH ENCODING 'UTF8';      
+> postgres=\# GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;  
 > postgres=\# \q   
 > exit  
 

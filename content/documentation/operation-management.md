@@ -89,9 +89,9 @@ Refer to [Appendix 2: PostgreSQL Operations](/documentation/appendix-psql/) .
 > su - postgres  
 > psql  
 
-> create user janusec with password 'J@nusec123';  
-> create database janusec owner janusec;  
-> grant all privileges on database janusec to janusec;  
+> CREATE USER janusec WITH PASSWORD 'J@nusec123';  
+> CREATE DATABASE janusec OWNER janusec WITH ENCODING 'UTF8';    
+> GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;  
 > \q  
 > exit  
 > psql -h 127.0.0.1 -U janusec -W janusec  
@@ -113,9 +113,9 @@ if the link outdated, copy the right link from `https://yum.postgresql.org/repop
 
 PostgreSQL Shell   
 
-> postgres=\# create user `janusec` with password &#39;`your_password`&#39;;  
-> postgres=\# create database janusec owner janusec;   
-> postgres=\# grant all privileges on database janusec to janusec;  
+> postgres=\# CREATE USER `janusec` WITH PASSWORD &#39;`your_password`&#39;;  
+> postgres=\# CREATE DATABASE janusec OWNER janusec WITH ENCODING 'UTF8';     
+> postgres=\# GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;  
 > postgres=\# \q   
 > exit  
 

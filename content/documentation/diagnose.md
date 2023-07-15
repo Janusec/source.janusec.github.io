@@ -47,7 +47,11 @@ Check version within PSQL Shell:
 
 > select version();  
 
-The version must be greater than `10`.  
+The version shall be greater than `10`.   
+
+> show SERVER_ENCODING;  
+
+Server encoding should be UTF8 .    
 
 ### Ports
 

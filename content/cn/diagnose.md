@@ -55,6 +55,10 @@ weight: 1200
 
 版本要求为`10`以上（不支持早于PostgreSQL 9.5的版本）。  
 
+> show SERVER_ENCODING;  
+
+要求数据库编码为UTF8 。  
+
 ### 端口
 
 > `netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'`  
