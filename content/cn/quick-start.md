@@ -22,9 +22,9 @@ weight: 100
 ----
 
 | 节点      | 操作系统   | 数据库 |
-|----------|-----------------------------------------------------------------------------------|----------------------------------|
-| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | SQLite3 或 PostgreSQL 10/11/12+  |   
-| 副本节点  | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
+|----------|--------------------------------------------------------------------------------------|-------------------------------------|
+| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables   | SQLite3 或 PostgreSQL 10/11/12/13+  |   
+| 副本节点  | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables   | 不需要 |  
 
 备注：  
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考[安装](/cn/installation/)一节。   
@@ -83,15 +83,30 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
 ----
 ##### 步骤 1: 下载  
 
-可以从 https://github.com/Janusec/janusec/releases 下载最新版本。  
+开源版本的下载链接包括:  
 
-> $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz`  
+* Mirror 1 Github (USA):   [Github Releases](https://github.com/Janusec/janusec/releases)     
+* Mirror 2 Gitee (China):  [Gitee Releases](https://gitee.com/Janusec/janusec/releases)   
+
+增强特性体验版：  
+
+* Mirror 3 JANUSEC: [Janusec Application Gateway Professional Plus](https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz) 
+
+增强特性说明：增强体验版是在开源版本基础上进一步增强，增强特性部分不开源，仅用于测试或体验（JANUSEC保留在未来版本中对增强特性进行变更的权利，包括继续增强、删减等）。     
+
+增强特性包括：  
+
+* Cookie合规管理(提供Cookie Banner与用户同意管理) ， v1.4.2版本开始提供     
+* GSLB (全局负载均衡，自带DNS服务器) ， v1.4.2版本开始提供   
+
+
+请下载到当前用户目录`/home/xxx/`或其他非安装目录，然后解压：    
+
 > $tar zxf ./janusec-1.4.2-amd64.tar.gz  
 
 ##### 步骤 2: 安装  
 
-请切换到root用户并运行 install.sh , JANUSEC应用网关将安装在目录： `/usr/local/janusec/ ` 
+请切换到`root`用户并运行 install.sh , JANUSEC应用网关将安装在目录： `/usr/local/janusec/ ` 
 
 > $su   
 > #cd janusec-1.4.x-amd64  （根据实际版本号和CPU架构类型修改）   

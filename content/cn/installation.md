@@ -14,8 +14,8 @@ weight: 300
 
 | 节点      | 操作系统   | 数据库 |
 |----------|--------------------------------------------------------------------------------|-----------------------|
-| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12+  |   
-| 副本节点  | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables   | 不需要 |  
+| 主节点    | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables   | PostgreSQL 10/11/12/13+  |   
+| 副本节点  | Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables   | 不需要 |  
 
 
 
@@ -45,9 +45,27 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。  
 
 
-### 步骤1: 下载
-> $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz`  
+### 步骤1: 下载  
+
+开源版本的下载链接包括:  
+
+* Mirror 1 Github (USA):   [Github Releases](https://github.com/Janusec/janusec/releases)     
+* Mirror 2 Gitee (China):  [Gitee Releases](https://gitee.com/Janusec/janusec/releases)   
+
+增强特性体验版：  
+
+* Mirror 3 JANUSEC: [Janusec Application Gateway Professional Plus](https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz) 
+
+增强特性说明：增强体验版是在开源版本基础上进一步增强，增强特性部分不开源，仅用于测试或体验（JANUSEC保留在未来版本中对增强特性进行变更的权利，包括继续增强、删减等）。     
+
+增强特性包括：  
+
+* Cookie合规管理(提供Cookie Banner与用户同意管理) ， v1.4.2版本开始提供     
+* GSLB (全局负载均衡，自带DNS服务器) ， v1.4.2版本开始提供   
+
+
+请下载到当前用户目录`/home/xxx/`或其他非安装目录，然后解压：    
+
 > $tar zxf ./janusec-1.4.2-amd64.tar.gz  
 
 ### 步骤2: 安装

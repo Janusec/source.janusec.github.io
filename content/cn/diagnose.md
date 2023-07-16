@@ -19,7 +19,7 @@ weight: 1200
 
 操作系统需要为x86_64架构的如下操作系统之一：  
 
-* Debian 9/10/11+  (首选Debian 10+)   
+* Debian 9/10/11+  (首选Debian 10/11+)   
 * CentOS 7/8+  
 * RHEL 7/8+  
 
@@ -53,7 +53,7 @@ weight: 1200
 
 > select version();  
 
-版本要求为`10`以上（不支持早于PostgreSQL 9.5的版本）。  
+版本要求为`10`以上（不支持早于PostgreSQL 9.6的版本）。  
 
 > show SERVER_ENCODING;  
 
@@ -65,14 +65,19 @@ weight: 1200
 
 Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。  
 
-当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。  
+当config.json中listen=true时，网关还需要使用TCP 9080/9443端口，一般用于从内网发起管理。  
 
 > `netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'`  
 
+当启用GSLB和DNS服务器时，网关还需要使用TCP/UDP 53端口，请确认端口是否被占用，防火墙策略是否开通：    
+
+> `netstat -anp | grep ':53\s'`  
 
 ### DNS
 
-DNS需要指向网关的IP地址。应用迁移时，可以先使用hosts方式将域名指向网关，调试通过后再修改DNS指向。  
+DNS需要指向网关的IP地址。应用迁移时，可以先使用hosts方式将域名指向网关，调试通过后再修改DNS指向。   
+
+如需使用GSLB，可考虑切换到增强体验版本。   
 
 ### 证书  
 
@@ -87,11 +92,11 @@ DNS需要指向网关的IP地址。应用迁移时，可以先使用hosts方式�
 为了保证主副本节点正确同步，需要满足：  
 
 * 各节点时间正确（误差不超过一分钟）  
-* 副本节点`node_key`跟Web管理控制台中[节点管理](/cn/node-management)中显示的`node_key`一致。  
+* 副本节点`node_key`跟Web管理控制台中[节点管理](/cn/node-management)中显示的`node_key`一致（不同时间看到的结果不同，不影响同步）。  
 
 ### 日志
 
-日志文件路径为 `/usr/local/janusec/log/` ，可查看日志中是否存在错误输出。  
+日志文件路径为 `/usr/local/janusec/log/` ，可查看日志中是否存在错误输出，特别是`error.log`。   
 
 ### nftables防火墙
 

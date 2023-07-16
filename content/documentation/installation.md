@@ -44,9 +44,27 @@ If the rule is not empty, it may affect the effectiveness of the firewall policy
 
 
 ### Step 1: Download
-> $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz`  
-> $tar zxf ./janusec-1.4.2-amd64.tar.gz  
+
+Download links of Open Source Editions:  
+
+* Mirror 1 Github (USA):   [Github Releases](https://github.com/Janusec/janusec/releases)     
+* Mirror 2 Gitee (China):  [Gitee Releases](https://gitee.com/Janusec/janusec/releases)   
+
+Download links of the Professional Plus Edition:   
+
+* Mirror 3 JANUSEC: [Janusec Application Gateway Professional Plus](https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz) 
+
+The Professional Plus Edition is a further enhancement based on the open source version. The enhanced features are not open source and are only used for testing or experience (JANUSEC reserves the right to make changes to the enhanced features in future versions, including continued enhancements, deletions, etc.).    
+
+Professional features：  
+
+* Cookie Compliance Management, include Cookie Banner, Consent Management and Cookie Discovery etc., provided from v1.4.2      
+* GSLB (Global Server Load Balance, with DNS Server) , provided from v1.4.2    
+
+Please download to the home directory of current user `/home/xxx/` or other directories except the installation directory, and then extract it：    
+
+> $tar zxf ./janusec-1.4.2-amd64.tar.gz   
+
 
 ### Step 2: Install
 Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 

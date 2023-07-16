@@ -61,7 +61,11 @@ Janusec will use 80/443 , if other program occupied thest ports, you shoud chang
 
 If listen=true in config.json, Janusec will use 9080/9443 also, used for internal management.  
 
-> `netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'`  
+> `netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'`   
+
+When enabling GSLB and DNS servers, the gateway also needs to use TCP/UDP 53 port. Please confirm whether the port is occupied and whether the firewall policy is permitted:    
+
+> `netstat -anp | grep ':53\s'`   
 
 ### DNS  
 

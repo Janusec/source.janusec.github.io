@@ -87,4 +87,18 @@ Set PostgreSQL stard when boot, and restart PostgreSQL Service
 * `\q` : quit  
 * `\h` : list all keywords  
 * `\?` : help  
-  
+
+
+### 2.3 Forget Password    
+
+If you forget the password, switch to user `postgres` with `root` privileges:   
+
+> sudo su - postgres  
+
+then run psql to enter into the database console：  
+
+> psql   
+
+Switch to the target database:   
+
+> \c janusec;   

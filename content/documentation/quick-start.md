@@ -20,9 +20,9 @@ This document will guide you to install a Single-Node **Janusec Application Gate
 ----
 
 | Role          | Operating System   | Database |
-|---------------|-------------------------------------------------------------------------------------------------|-----------------------------------|
-| Primary Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | SQLite3 or PostgreSQL 10/11/12+   |   
-| Replica Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) | Not required |  
+|---------------|----------------------------------------------------------------------------------------------------|--------------------------------------|
+| Primary Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) | SQLite3 or PostgreSQL 10/11/12/13+   |   
+| Replica Node  | Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) | Not required |  
 
 
 ## 1 Prepare nftables  
@@ -78,14 +78,28 @@ nftables is not installed for CentOS 7 by default, installation is required:
 ----
 ##### Step 1: Download  
 
-The latest version is available at https://github.com/Janusec/janusec/releases .  
+Download links of Open Source Editions:  
 
-> $cd ~  
-> $wget `https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz`  
-> $tar zxf ./janusec-1.4.2-amd64.tar.gz  
+* Mirror 1 Github (USA):   [Github Releases](https://github.com/Janusec/janusec/releases)     
+* Mirror 2 Gitee (China):  [Gitee Releases](https://gitee.com/Janusec/janusec/releases)   
+
+Download links of the Professional Plus Edition:   
+
+* Mirror 3 JANUSEC: [Janusec Application Gateway Professional Plus](https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz) 
+
+The Professional Plus Edition is a further enhancement based on the open source version. The enhanced features are not open source and are only used for testing or experience (JANUSEC reserves the right to make changes to the enhanced features in future versions, including continued enhancements, deletions, etc.).    
+
+Professional features：  
+
+* Cookie Compliance Management, include Cookie Banner, Consent Management and Cookie Discovery etc., provided from v1.4.2      
+* GSLB (Global Server Load Balance, with DNS Server) , provided from v1.4.2    
+
+Please download to the home directory of current user `/home/xxx/` or other directories except the installation directory, and then extract it：    
+
+> $tar zxf ./janusec-1.4.2-amd64.tar.gz   
 
 ##### Step 2: Install
-Switch to root and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
+Switch to `root` and run install.sh , janusec application gateway will be installed to `/usr/local/janusec/ ` 
 
 > $su   
 > #cd janusec-1.4.x-amd64     
