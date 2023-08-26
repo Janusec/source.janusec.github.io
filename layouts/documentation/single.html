@@ -1,23 +1,23 @@
 {{ define "main" }}
-  {{ partial "header" . }}
-  <div class="container-fluid">
-  <div class="row">    
-      <div class="col-sm-3">        
-        <ul class="list-group">
-          {{ range .Parent.Pages.ByWeight }}
-            <li class="list__post list-group-item">
-              <span></span>
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-      <div class="col-sm-9">
-            <article>
-            {{ .Content }}
-            </article>
-      </div>
+{{ partial "header" . }}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="list-group">
+        {{ range .Parent.Pages.ByWeight }}
+        <li class="list__post list-group-item">
+          <span></span>
+          <a href="{{ .Permalink }}" class="nav-link">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <article>
+        {{ .Content }}
+      </article>
+    </div>
   </div>
 </div>
-  {{ partial "footer" . }}
+{{ partial "footer" . }}
 {{ end }}

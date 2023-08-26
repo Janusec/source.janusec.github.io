@@ -7,7 +7,7 @@ article img {
 }
 
 table {
-    border: 1px solid #0595CC;  
+    border: 1px solid #0595CC;
 }
 
 table th {
@@ -35,7 +35,8 @@ blockquote {
 .rowblock {
     background-color: #262626;
     color: #FFFFFF;
-    border-bottom: 1px solid #353535;padding: 30px;
+    border-bottom: 1px solid #353535;
+    padding: 30px;
 }
 
 .rowblock2 {
@@ -80,8 +81,8 @@ img {
     border-radius: 30px;
     color: rgb(240, 237, 246);
     background-color: #4472C4;
-    font-family: Arial,sans-serif;
-    font-weight: 700;    
+    font-family: Arial, sans-serif;
+    font-weight: 700;
 }
 
 .bigbtn:hover {
@@ -96,4 +97,12 @@ img {
 .biglogo {
     margin: 80px 0px;
     max-width: 100%;
+}
+
+.nav-link:hover {
+    background-color: #e5e5e5;
+}
+
+.nav-link:active {
+    background-color: aqua;
 }
