@@ -31,3 +31,13 @@ Assuming you have an application that provides services to internet users throug
 7. Step 7: Configure application in Application and make sure the backend source servers are available to all nodes of Janusec Application Gateway.  
 8. Step 8: Open with web browser, or under command shell: `nslookup demo.example.com`, or `dig demo.example.com A`  
 
+## 3 FAQ  
+1. Q: What type of DNS server is built-in to the gateway primary node?  
+A: The gateway master node provides an authoritative DNS server, which only supports the resolution of its own domain name, and is used to provide query results to other DNS servers (such as Recursive DNS Server and Caching DNS Server).  
+
+2. Q: Is replica nodes enabled for DNS services?  
+A: The DNS service is temporarily not enabled on replica nodes. DNS service is only provided on the primary node and listens on TCP/UDP 53 port.  
+
+3. Q: What should I do if I want to set up two DNS servers?  
+A: You can deploy a new primary node (labeled as `PrimaryB`) and copy the configuration file (`/usr/local/janusec/config.json`) of the current primary node (labeled as `PrimaryA`) to `PrimaryB`. The two primary nodes share the same database. It should be noted that the database should be an internal IP address that can be accessed by both nodes, and cannot be a local address like `127.0.0.1`. Normally, `PrimaryA` is used for management and maintenance. If the configuration changes, please manually restart the januc service on `PrimaryB`: # 'systemctl restart janusec' to make the new configuration take effect on `PrimaryB`.   
+

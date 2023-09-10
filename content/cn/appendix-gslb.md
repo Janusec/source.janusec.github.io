@@ -26,7 +26,19 @@ Janusec Application Gateway 的增强体验版在主节点内置了DNS服务器�
 3. 步骤3：在 全局设置-高级，启用DNS服务器并重启服务： #`systemctl restart janusec`  
 4. 步骤4：在权威DNS服务器处（小型企业或个人域名通常为域名注册商），为网关域名服务器添加`A`记录（或CNAME记录），名称为`ns01`，值为本网关的IP地址；添加`NS`记录，名称为`demo`，值为`ns01.example.com.`  
 5. 步骤5：在应用网关，创建`A`记录，名称为 `demo` ，勾选`自动解析到可用的网关节点`   
-6. 步骤6（重要）：在域名注册商处，创建`DNS Hostnames`（也就是`Glue Records`），名称为`ns01`，值为本网关的IP地址；此记录大约需要24到48小时生效；如果此记录缺失，此DNS服务器将不被其他DNS服务器认可  
+6. 步骤6（重要）：在域名注册商处，创建`DNS Hostnames`（也就是 `Glue Records`），名称为`ns01`，值为本网关的IP地址；此记录大约需要24到48小时生效    
 7. 步骤7：检查应用配置，确保后端源服务器对所有网关节点网络可达  
 8. 步骤8：使用浏览器或命令行测试验证： `nslookup demo.example.com`, or `dig demo.example.com A`   
+
+## 3 FAQ  
+
+1. Q: 网关主节点（Primary）内置的DNS服务器是哪一种类型？   
+A: 网关主节点提供的是权威服务器（Authoritative DNS Server），仅支持自有域名的解析，用于向其他DNS服务器（如递归服务器 Recursive DNS Server、缓存服务器 Caching DNS Server）提供查询结果。     
+
+2. Q: 副本节点（Replica）是否开启DNS服务？  
+A: DNS服务暂时不在副本节点（replica）开启。DNS服务仅在主节点（primary）提供，监听TCP/UDP 53端口。   
+
+3. Q: 希望设置两台DNS服务器，应该如何操作？  
+A: 可以新增一个主节点（记为`主节点B`），将当前主节点（记为`主节点A`）的配置文件（`/usr/local/janusec/config.json`）复制到`主节点B`，两台主节点共用同一台数据库，需要注意数据库应为两个节点均可访问的内部IP地址，不能为`127.0.0.1`这样的本机地址。平常使用`主节点A`进行管理维护，如果配置发生变化，请手工在`主节点B`上重启一下janusec服务: #`systemctl restart janusec` 以便让新配置在`主节点B`生效。     
+
 

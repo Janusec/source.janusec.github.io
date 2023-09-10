@@ -92,7 +92,7 @@ The Professional Plus Edition is a further enhancement based on the open source 
 Professional features：  
 
 * Cookie Compliance Management, include Cookie Banner, Consent Management and Cookie Discovery etc., provided from v1.4.2      
-* GSLB (Global Server Load Balance, with DNS Server) , provided from v1.4.2    
+* GSLB (Global Server Load Balance, with Authoritative DNS Server) , provided from v1.4.2    
 
 Please download to the home directory of current user `/home/xxx/` or other directories except the installation directory, and then extract it：    
 
